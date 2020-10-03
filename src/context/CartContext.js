@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Client from 'shopify-buy';
 
 const client = Client.buildClient({
-  domain: `${process.env.GATSBY_SHOP_NAME}.myshopify.com`,
-  storefrontAccessToken: process.env.GATSBY_ACCESS_TOKEN,
+  domain: `MyChemistry.myshopify.com`,
+  storefrontAccessToken: '679c479114cb015b8176b70be0aa4f61',
 });
 
 const defaultState = {
@@ -21,6 +21,7 @@ export function CartContextProvider({ children }) {
   );
 
   const [successfulOrder, setSuccessfulOrder] = useState(null);
+  const [recent, setRecent] = React.useState([]);
   const checkoutId = checkout?.id;
 
   React.useEffect(() => {
@@ -40,6 +41,18 @@ export function CartContextProvider({ children }) {
 
     getCheckout();
   }, [setCheckout, setSuccessfulOrder, checkoutId]);
+  React.useEffect(() => {
+    const RecentProductsArray = JSON.parse(
+      localStorage.getItem('RecentProductsArray')
+    );
+    if (!RecentProductsArray) {
+      localStorage.setItem('RecentProductsArray', JSON.stringify([]));
+    } else if (RecentProductsArray.length <= recent.length) {
+      localStorage.setItem('RecentProductsArray', JSON.stringify(recent));
+    } else if (RecentProductsArray.length > recent.length) {
+      setRecent(RecentProductsArray);
+    }
+  }, [recent]);
 
   async function getProductById(productId) {
     const product = await client.product.fetch(productId);
@@ -97,6 +110,12 @@ export function CartContextProvider({ children }) {
   const dismissSuccessfulOrder = () => {
     setSuccessfulOrder(null);
   };
+  const changeRecent = rec => {
+    /* localStorage.setItem('RecentProductsArray', JSON.stringify([1, 2, 3])); */
+    if (!recent.includes(rec)) {
+      setRecent([...recent, rec]);
+    }
+  };
 
   return (
     <CartContext.Provider
@@ -107,6 +126,8 @@ export function CartContextProvider({ children }) {
         getProductById,
         successfulOrder,
         dismissSuccessfulOrder,
+        changeRecent,
+        recent,
       }}
     >
       {children}

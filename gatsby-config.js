@@ -8,6 +8,7 @@ module.exports = {
     description: `Gatsby & Shopify Starter for the WebDevEducation course.`,
     author: `@tomphill`,
   },
+
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-optional-chaining`,
@@ -27,8 +28,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-shopify',
       options: {
-        shopName: process.env.GATSBY_SHOP_NAME,
-        accessToken: process.env.GATSBY_ACCESS_TOKEN,
+        shopName: process.env.SHOPIFY_STORE_NAME,
+        accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
         apiVersion: '2020-07',
       },
     },
@@ -54,5 +55,28 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`,
       },
     },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `4045v25pb6qt`,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
+    // {
+    //   resolve: 'gatsby-source-yotpo-shopify',
+    //   options: {
+    //     shopName: process.env.SHOPIFY_STORE_NAME,
+    //     shopifyAccessToken: process.env.SHOPIFY_ACCESS_TOKEN,
+    //     yotpoAppKey: process.env.YOTPO_APP_KEY,
+    //     apiVersion: '2020-07',
+    //   },
+    // },
+    /* {
+      resolve: 'gatsby-source-yotpo',
+      options: {
+        appKey: process.env.YOTPO_APP_KEY,
+        appSecret: process.env.YOTPO_SECRET_KEY,
+      },
+    }, */
   ],
 };
