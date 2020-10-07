@@ -6,11 +6,11 @@ export const Input = styled.input`
   font-size: 16px;
   font-family: sans-serif;
 
-  padding: 5px 20px;
+  padding: 5px 5px;
   height: 40px;
   box-sizing: border-box;
   min-width: 0;
-  width: 50px;
+  width: 100%;
   border: 1px solid rgb(231, 234, 236);
   text-align: center;
   &:focus {

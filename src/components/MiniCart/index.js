@@ -15,7 +15,7 @@ import {
 import { QuantityAdjuster } from '../QuantityAdjuster';
 import { RemoveLineItem } from '../RemoveLineItem';
 import { navigate } from '@reach/router';
-import { FaShoppingCart, FaLock, FaTag, FaTrashAlt } from 'react-icons/fa';
+import { FaTrashAlt } from 'react-icons/fa';
 
 export function MiniCart() {
   const { checkout, updateLineItem } = React.useContext(CartContext);
@@ -40,13 +40,15 @@ export function MiniCart() {
   return (
     <MyItems>
       <Btns>
-        <div onClick={moveToBasketPage}>View Basket</div>
+        <div role="presentation" onClick={moveToBasketPage}>
+          View Basket
+        </div>
         <div>CheckOut</div>
       </Btns>
 
       {checkout?.lineItems?.map(item => (
         <CartItem key={item.variant.id}>
-          <img src={item.variant.image.src} />
+          <img alt="" src={item.variant.image.src} />
           <Titles>
             <div>{item.title}</div>
           </Titles>
@@ -69,8 +71,6 @@ export function MiniCart() {
         <TotalPrice>
           Subtotal:<span>${checkout?.totalPrice}</span>
         </TotalPrice>
-
-        {/* <div>${(item.quantity * item.variant.price).toFixed(2)}</div> */}
       </Total>
     </MyItems>
   );

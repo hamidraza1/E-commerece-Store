@@ -53,7 +53,7 @@ export function CartContents() {
           <p>Non-prescription items ({totalQuantity})</p>
           {checkout?.lineItems?.map(item => (
             <CartItem key={item.variant.id}>
-              <img src={item.variant.image.src} />
+              <img alt="" src={item.variant.image.src} />
               <Titles>
                 <div>{item.title}</div>
                 {/*  <div>
@@ -85,7 +85,9 @@ export function CartContents() {
                 <span>Your total savings today</span>{' '}
                 <span>${checkout?.totalPrice}</span>
               </div>
-              <div onClick={handleSavingsDes}>What is this?</div>
+              <div role="presentation" onClick={handleSavingsDes}>
+                What is this?
+              </div>
               {savingsDes ? (
                 <div>
                   Total savings shows you all the money you have saved today by

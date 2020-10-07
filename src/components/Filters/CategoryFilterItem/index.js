@@ -10,6 +10,7 @@ export function CategoryFilterItem({ title, id }) {
   const collectionIds = qs.c?.split(',').filter(c => !!c) || [];
   const checked = collectionIds?.find(cId => cId === id);
   const searchTerm = qs.s;
+  const priceFilter = qs.p;
 
   const onClick = () => {
     let navigateTo = '/all-products';
@@ -24,7 +25,7 @@ export function CategoryFilterItem({ title, id }) {
       newIds = collectionIds.map(cId => encodeURIComponent(cId));
     }
 
-    if (newIds.length && !searchTerm) {
+    /*  if (newIds.length && !searchTerm) {
       navigate(`${navigateTo}?c=${newIds.join(',')}`);
     } else if (newIds.length && !!searchTerm) {
       navigate(
@@ -32,8 +33,33 @@ export function CategoryFilterItem({ title, id }) {
           searchTerm
         )}`
       );
-    } else if (!!newIds.length && !!searchTerm) {
+    } else if (!newIds.length && !!searchTerm) {
       navigate(`${navigateTo}?s=${encodeURIComponent(searchTerm)}`);
+    } else {
+      navigate(`${navigateTo}`);
+    } */
+    if (newIds.length && !searchTerm && !priceFilter) {
+      navigate(`${navigateTo}?c=${newIds.join(',')}`);
+    } else if (newIds.length && !!searchTerm && !!priceFilter) {
+      navigate(
+        `${navigateTo}?c=${newIds.join(',')}&s=${encodeURIComponent(
+          searchTerm
+        )}&p=${priceFilter}`
+      );
+    } else if (!newIds.length && !!searchTerm && !priceFilter) {
+      navigate(`${navigateTo}?s=${encodeURIComponent(searchTerm)}`);
+    } else if (!newIds.length && !searchTerm && !!priceFilter) {
+      navigate(`${navigateTo}?p=${priceFilter}`);
+    } else if (newIds.length && !!searchTerm && !priceFilter) {
+      navigate(
+        `${navigateTo}?c=${newIds.join(',')}&s=${encodeURIComponent(
+          searchTerm
+        )}`
+      );
+    } else if (!newIds.length && !!searchTerm && !!priceFilter) {
+      navigate(`${navigateTo}?s=${encodeURIComponent(searchTerm)}`);
+    } else if (newIds.length && !searchTerm && !!priceFilter) {
+      navigate(`${navigateTo}?c=${newIds.join(',')}&p=${priceFilter}`);
     } else {
       navigate(`${navigateTo}`);
     }

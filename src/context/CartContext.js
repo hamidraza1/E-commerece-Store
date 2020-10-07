@@ -111,7 +111,6 @@ export function CartContextProvider({ children }) {
     setSuccessfulOrder(null);
   };
   const changeRecent = rec => {
-    /* localStorage.setItem('RecentProductsArray', JSON.stringify([1, 2, 3])); */
     if (!recent.includes(rec)) {
       setRecent([...recent, rec]);
     }

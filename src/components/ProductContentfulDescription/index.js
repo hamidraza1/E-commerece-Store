@@ -43,9 +43,7 @@ const query = graphql`
 `;
 
 export function ProductContentfulDescription({ title, id }) {
-  const { getProductById, recent, changeRecent } = React.useContext(
-    CartContext
-  );
+  const { changeRecent } = React.useContext(CartContext);
   const { allContentfulBannerPost } = useStaticQuery(query);
   const [descript, setDescript] = React.useState(null);
   const Productdata = allContentfulBannerPost.edges.find(
@@ -80,17 +78,16 @@ export function ProductContentfulDescription({ title, id }) {
     var btns = btnContainer.getElementsByClassName('btn');
     btns[0] ? btns[0].classList.add('active') : console.log('by');
     changeRecent(id);
-  }, [changeRecent]);
+  }, [changeRecent, id]);
 
   const Array = JSON.parse(localStorage.getItem('RecentProductsArray'));
 
   const handleTitle = event => {
     var reqdescription = output.find(out => {
-      for (var i in out) {
-        if (i === event.target.innerText) {
-          return out;
-        }
+      if (Object.keys(out)[0] === event.target.innerText) {
+        return true;
       }
+      return false;
     });
 
     setDescript(Object.values(reqdescription)[0]);
@@ -114,8 +111,9 @@ export function ProductContentfulDescription({ title, id }) {
           return out;
         }
       }
+      return false;
     });
-    console.log(Object.keys(reqdescription)[0]);
+
     setView(Object.keys(reqdescription)[0]);
     setDisplay(!display);
   };
@@ -126,7 +124,12 @@ export function ProductContentfulDescription({ title, id }) {
         <Info>
           <Titles id="myDIV">
             {titles.map((title, i) => (
-              <div key={i} onClick={handleTitle} className="btn">
+              <div
+                key={i}
+                role="presentation"
+                onClick={handleTitle}
+                className="btn"
+              >
                 {title}
               </div>
             ))}
@@ -135,8 +138,8 @@ export function ProductContentfulDescription({ title, id }) {
         </Info>
 
         <Info2>
-          {output.map(out => (
-            <>
+          {output.map((out, i) => (
+            <span key={i}>
               <Titles2 onClick={handleView}>
                 <div>{Object.keys(out)[0]}</div>
                 {display ? (
@@ -145,12 +148,12 @@ export function ProductContentfulDescription({ title, id }) {
                   <MdArrowDropUp size="1.5rem" />
                 )}
               </Titles2>
-              {view == Object.keys(out)[0] && display ? (
+              {view === Object.keys(out)[0] && display ? (
                 <Descriptions2>{Object.values(out)[0]}</Descriptions2>
               ) : (
                 ''
               )}
-            </>
+            </span>
           ))}
         </Info2>
       </Wrapper>

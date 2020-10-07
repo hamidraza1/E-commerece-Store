@@ -13,16 +13,17 @@ import {
 import { ProductQuantityAdder } from 'components';
 
 export function RecentViewedProducts({ Array }) {
-  const { products, collections } = React.useContext(ProductContext);
+  const { products } = React.useContext(ProductContext);
 
   return (
     <RecentViewedProductsWrapper>
       {Array.map((prod, i) => (
-        <ProductWrapper>
+        <ProductWrapper key={i}>
           <Title>{products.find(p => p.shopifyId === Array[i]).title}</Title>
 
           <MainImage>
             <img
+              alt=""
               src={
                 products.find(p => p.shopifyId === Array[i]).images[0].localFile
                   .childImageSharp.fluid.src

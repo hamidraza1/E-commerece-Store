@@ -9,7 +9,7 @@ import {
 } from './styles';
 import CartContext from 'context/CartContext';
 
-export function ProductQuantityAdder({ available, variantId }) {
+export function ProductQuantityAdder({ available, variantId, tileView }) {
   const [quantity, setQuantity] = React.useState(1);
   const { updateLineItem } = React.useContext(CartContext);
 
@@ -33,14 +33,16 @@ export function ProductQuantityAdder({ available, variantId }) {
 
   return (
     <ProductQuantityAdderWrapper>
-      <form onSubmit={handleSubmit}>
+      <div onSubmit={handleSubmit} tile={tileView}>
         <span>
           <DecrementBtn onClick={handleDecrement}>-</DecrementBtn>
-          <Input
-            disabled={!available}
-            value={quantity}
-            onChange={handleQuantityChange}
-          />
+          <span>
+            <Input
+              disabled={!available}
+              value={quantity}
+              onChange={handleQuantityChange}
+            />
+          </span>
 
           <IncrementBtn onClick={handleIncrement}>+</IncrementBtn>
         </span>
@@ -48,7 +50,7 @@ export function ProductQuantityAdder({ available, variantId }) {
         <AddToCartButton type="submit" disbaled={!available}>
           Add
         </AddToCartButton>
-      </form>
+      </div>
     </ProductQuantityAdderWrapper>
   );
 }

@@ -1,36 +1,77 @@
 import styled from 'styled-components';
-import { StyledLink } from '../StyledLink';
 
 export const ProductTileWrapper = styled.div`
-  border: 1px solid #ddd;
+  border-right: 1px solid #d8d8d8;
+  border-bottom: 1px solid #d8d8d8;
   display: flex;
-  border-top-right-radius: 5px;
-  border-top-left-radius: 5px;
-  overflow: hidden;
+  flex-direction: ${props => (props.tileView ? 'column' : 'row')};
+
+  padding: 10px;
+`;
+
+export const Heading = styled.div`
+  order: ${props => (props.tileView ? '1' : '2')};
+  display: flex;
   flex-direction: column;
-  > ${StyledLink} {
-    border: 1px solid black;
-    text-decoration: none;
-    display: block;
-    padding: 10px;
-    text-align: center;
-    font-weight: bold;
-    color: black;
-  }
+  justify-content: space-evenly;
+  width: ${props => (props.tileView ? '100%' : '50%')};
+  text-align: ${props => (props.tileView ? 'center' : 'left')};
+  margin-left: ${props => (props.tileView ? '0' : '20px')};
 `;
 
 export const Title = styled.div`
-  font-weight: bold;
-  font-size: 20px;
-  margin: 20px;
+  width: 100%;
+  margin: 0 auto;
+`;
+
+export const VariantTitle = styled.div`
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 0;
+`;
+export const Image = styled.div`
+  width: 150px;
+  height: 150px;
+  width: ${props => (props.tileView ? '100%' : '25%')};
+  order: ${props => (props.tileView ? '3' : '1')};
+  text-align: center;
+  margin: 20px 0;
+  > img {
+    width: 150px;
+    height: 150px;
+  }
 `;
 export const Description = styled.div`
-  color: #999;
-  text-align: left;
-  padding: 0 20px 10px 20px;
+  display: ${props => (props.tileView ? 'none' : 'block')};
+  order: ${props => (props.tileView ? '4' : '4')};
+`;
+export const ReviewNPrice = styled.div`
+  display: flex;
+  justify-content: space-between;
+  order: ${props => (props.tileView ? '5' : '5')};
+  margin: 20px 0;
+`;
+export const ReviewTile = styled.div`
+  order: ${props => (props.tileView ? '6' : '6')};
+
+  display: ${props => (props.tileView ? 'none' : 'block')};
+`;
+export const ReviewGrid = styled.div`
+  order: ${props => (props.tileView ? '6' : '6')};
+  display: ${props => (props.tileView ? 'block' : 'none')};
 `;
 export const Price = styled.div`
-  padding: 20px;
-  font-weight: bold;
-  margin-top: auto;
+  order: ${props => (props.tileView ? '7' : '7')};
+  margin-left: auto;
+  font-weight: 600;
+  color: green;
+`;
+export const OriginalPrice = styled.div`
+  order: ${props => (props.tileView ? '8' : '8')};
+  text-align: right;
+  text-decoration: line-through;
+`;
+export const PriceNQuantity = styled.div`
+  width: ${props => (props.tileView ? '100%' : '25%')};
+  order: ${props => (props.tileView ? '9' : '9')};
 `;

@@ -12,6 +12,7 @@ export const BannerImage = styled.div`
   position: relative;
   > img {
     position: absolute;
+    z-index: 1;
     top: 0;
     left: 0;
     object-fit: cover;

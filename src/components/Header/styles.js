@@ -158,6 +158,7 @@ export const Nav = styled(motion.nav)`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 `;
 export const Ul = styled(motion.div)`
   overflow: hidden;

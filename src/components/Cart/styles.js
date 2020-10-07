@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { StyledLink } from '../StyledLink';
 
 export const CartWrapper = styled.div`
   display: flex;

@@ -5,11 +5,32 @@ import styled from 'styled-components';
 import queryString from 'query-string';
 import { useLocation } from '@reach/router';
 
+const AllProductsWrapper = styled.div`
+  width: 100%;
+`;
 const Content = styled.div`
-  display: grid;
-  grid-gap: 20px;
+  display: flex;
+  flex-direction: column;
+  grid-gap: ;
   margin-top: 20px;
-  grid-template-columns: 1fr 3fr;
+  width: ;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+  > span:first-child {
+    background: white;
+    border-right: 1px solid #d8d8d8;
+    width: ;
+    @media (min-width: 768px) {
+      width: 25%;
+    }
+  }
+  > span:last-child {
+    width: ;
+    @media (min-width: 768px) {
+      width: 75%;
+    }
+  }
 `;
 
 export default function AllProducts() {
@@ -20,6 +41,7 @@ export default function AllProducts() {
   const selectedCollectionIds = qs.c?.split(',').filter(c => !!c) || [];
   const selectedCollectionIdsMap = {};
   const searchTerm = qs.s;
+  const priceFilter = qs.p;
 
   selectedCollectionIds.forEach(collectionId => {
     selectedCollectionIdsMap[collectionId] = true;
@@ -51,47 +73,84 @@ export default function AllProducts() {
   const filterBySearchTerm = product => {
     if (searchTerm) {
       return product.title.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0;
-    } else {
+    }
+    return true;
+  };
+
+  const filterByPriceRange = product => {
+    if (!!priceFilter && priceFilter === 'less-than-5') {
+      if (Number(product.priceRange.minVariantPrice.amount) < 5) {
+        return true;
+      }
+    }
+    if (!!priceFilter && priceFilter === 'five-To-ten') {
+      if (
+        Number(product.priceRange.minVariantPrice.amount) >= 5 &&
+        Number(product.priceRange.minVariantPrice.amount) <= 10
+      ) {
+        return true;
+      }
+    }
+    if (!!priceFilter && priceFilter === 'more-than-10') {
+      if (Number(product.priceRange.minVariantPrice.amount) > 10) {
+        return true;
+      }
+    }
+    if (!priceFilter) {
       return true;
     }
   };
 
   const filteredProducts = products
     .filter(filterByCategory)
+    .filter(filterByPriceRange)
     .filter(filterBySearchTerm);
 
   return (
     <Layout>
-      {!!searchTerm && !!filteredProducts && (
-        <h3>
-          Search term: <strong>'{searchTerm}'</strong>
-        </h3>
-      )}
-      {!!filteredProducts.length && <h4>{filteredProducts.length} Products</h4>}
-
-      <Content>
-        <Filters />
-        {!filteredProducts.length && (
-          <div>
-            <h3>
-              <span>ohh No , Nothing matches</span>
-              &nbsp;
-              <strong>'{searchTerm}'</strong>
-            </h3>
-            <div>To help with search why not try:</div>
-            <br />
-            <br />
-            <ul>
-              <li>checking your spelling</li>
-            </ul>
-          </div>
-        )}
+      <AllProductsWrapper>
+        {/* {!!searchTerm && !!filteredProducts && (
+          <h3>
+            Search term: <strong>'{searchTerm}'</strong>
+          </h3>
+        )} */}
         {!!filteredProducts.length && (
-          <div>
-            <ProductsGrid products={filteredProducts} />
-          </div>
+          <h4>{filteredProducts.length} Products</h4>
         )}
-      </Content>
+
+        <Content>
+          <span>
+            <Filters />
+          </span>
+
+          <span>
+            {!filteredProducts.length && (
+              <div>
+                <h3>
+                  <span>ohh No , Nothing matches</span>
+                  &nbsp;
+                  <strong>'{searchTerm}'</strong>
+                </h3>
+                <div>To help with search why not try:</div>
+                <br />
+                <br />
+                <ul>
+                  <li>checking your spelling</li>
+                </ul>
+              </div>
+            )}
+
+            {!!filteredProducts.length && (
+              <div>
+                <ProductsGrid
+                  products={filteredProducts}
+                  searchTerm={searchTerm}
+                />
+              </div>
+            )}
+          </span>
+        </Content>
+      </AllProductsWrapper>
     </Layout>
   );
 }

@@ -6,7 +6,6 @@ import {
   ImageGallery,
   ProductQuantityAdder,
   ProductContentfulDescription,
-  MiniCart,
 } from 'components';
 import {
   Grid,
@@ -26,7 +25,6 @@ import {
   StockNNote,
   StockNno,
   Note,
-  CartContentsWrapper,
 } from './styles';
 import CartContext from 'context/CartContext';
 import { navigate, useLocation } from '@reach/router';
@@ -42,7 +40,7 @@ export const query = graphql`
 
 export default function ProductTemplate(props) {
   const { getProductById } = React.useContext(CartContext);
-  const { recent, changeRecent } = React.useContext(CartContext);
+  /* const { recent, changeRecent } = React.useContext(CartContext); */
   const [product, setProduct] = React.useState(null);
   const [selectedVariant, setSelectedVariant] = React.useState(null);
   const { search, origin, pathname } = useLocation();

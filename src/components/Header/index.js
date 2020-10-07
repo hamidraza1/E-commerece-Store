@@ -19,32 +19,35 @@ import ProductContext from 'context/ProductContext';
 import { navigate } from '@reach/router';
 import { FaUserCircle } from 'react-icons/fa';
 import { FiMenu } from 'react-icons/fi';
-import { MiniCart } from 'components';
+import { MiniCart, HoveredTagsSection } from 'components';
 
 export function Header() {
-  const { /*  products, */ collections } = React.useContext(ProductContext);
+  const { products, collections } = React.useContext(ProductContext);
   const [miniCartCard, setMiniCartCard] = React.useState(false);
-  /* const [collecionName, setCollecionName] = React.useState();
-  const [tagsName, setTagsName] = React.useState(); */
+  const [displayHovered, setDisplayHovered] = React.useState(false);
+  const [collecionName, setCollecionName] = React.useState();
+
   const [menu, setMenu] = React.useState(false);
-  /* var tags = [];
-  var backToTags = []; */
 
   const handleMenu = () => {
     setMenu(!menu);
   };
 
-  /* const collectionOptions = collection => {
+  const collectionOptions = collection => {
     setCollecionName(collection?.title);
-  }; */
+    if (!displayHovered) {
+      setDisplayHovered(!displayHovered);
+    }
+  };
+  const removeCollectionHoverOptions = () => {
+    if (displayHovered) {
+      setDisplayHovered(!displayHovered);
+    }
+  };
 
   const moveToTagsPage = collection => {
     navigate(`/products/${collection.handle}`);
   };
-
-  /* const tagOptions = tag => {
-    setTagsName(tag);
-  }; */
 
   const handleMiniCartCard = () => {
     setMiniCartCard(!miniCartCard);
@@ -64,7 +67,7 @@ export function Header() {
 
   return (
     <HeaderOuterMostWrapper>
-      <HeaderOuterdiv>
+      <HeaderOuterdiv onMouseEnter={() => removeCollectionHoverOptions()}>
         <HeaderWrapper>
           <div>
             <Menu onClick={handleMenu}>
@@ -86,7 +89,7 @@ export function Header() {
             <button>Sign In/Up</button>
 
             <span>
-              <span onClick={handleMiniCartCard}>
+              <span role="presentation" onClick={handleMiniCartCard}>
                 <Cart />
               </span>
 
@@ -104,6 +107,7 @@ export function Header() {
           </div>
         </HeaderWrapper>
       </HeaderOuterdiv>
+
       <NavOuterdiv>
         <Nav>
           <Ul
@@ -114,8 +118,7 @@ export function Header() {
           >
             {collections.map((collection, i) => (
               <Li
-                /* onMouseEnter={() => collectionOptions(collection)}
-                onMouseLeave={() => collectionOptions()} */
+                onMouseEnter={() => collectionOptions(collection)}
                 onClick={() => moveToTagsPage(collection)}
                 key={i}
               >
@@ -123,36 +126,14 @@ export function Header() {
               </Li>
             ))}
           </Ul>
+
+          <HoveredTagsSection
+            collecionName={collecionName}
+            displayHovered={displayHovered}
+            setDisplayHovered={setDisplayHovered}
+          />
         </Nav>
       </NavOuterdiv>
-
-      {/* {collecionName
-        ? collections
-            .find(collection => collection.title === collecionName)
-            .products.map(product => {
-              tags.push(...product.tags);
-              const uniqueTags = new Set(tags);
-              backToTags = [...uniqueTags];
-            })
-        : ''}
-
-      {tags
-        ? backToTags?.map(tag => (
-            <div
-              onMouseEnter={() => tagOptions(tag)}
-              onMouseLeave={() => tagOptions()}
-            >
-              {tag}
-            </div>
-          ))
-        : ''}
-      {tagsName
-        ? products
-            .filter(product => product.tags[0] === tagsName)
-            .map(p => (
-              <StyledLink to={`/products/${p.handle}`}> {p.title}</StyledLink>
-            ))
-        : ''} */}
     </HeaderOuterMostWrapper>
   );
 }

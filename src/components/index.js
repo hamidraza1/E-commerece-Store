@@ -22,3 +22,4 @@ export * from './TagContentfulDescription';
 export * from './ProductContentfulDescription';
 export * from './RecentViewedProducts';
 export * from './MiniCart';
+export * from './HoveredTagsSection';
