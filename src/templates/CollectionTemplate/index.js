@@ -1,6 +1,11 @@
 import React from 'react';
-import { Layout, CollectionContentfulDescription } from 'components';
-
+import {
+  Layout,
+  CollectionContentfulDescription,
+  CollectionPageBanner,
+} from 'components';
+import { AiFillHome } from 'react-icons/ai';
+import { IoMdArrowDropright } from 'react-icons/io';
 import {
   CollectionTemplateWrapper,
   Description,
@@ -10,6 +15,8 @@ import {
   TagNames,
   TagNamesPicturesWrapper,
   TagNamePic,
+  ShopNowBtn,
+  CollectionTrack,
 } from './styles';
 import ProductContext from 'context/ProductContext';
 import { navigate } from '@reach/router';
@@ -40,6 +47,16 @@ export default function ProductTemplate(props) {
 
   return (
     <Layout>
+      <CollectionTrack>
+        <div>
+          <AiFillHome onClick={() => navigate(`/`)} />
+        </div>
+
+        <IoMdArrowDropright />
+        <div>
+          {collections.find(collection => collection.shopifyId === tagId).title}
+        </div>
+      </CollectionTrack>
       <CollectionTemplateWrapper>
         <Description>
           <CollectionContentfulDescription prop={props} />
@@ -47,7 +64,12 @@ export default function ProductTemplate(props) {
 
         <TagProd>
           <TagNamesWrapper>
-            <h4>Vitamins</h4>
+            <h4>
+              {
+                collections.find(collection => collection.shopifyId === tagId)
+                  .title
+              }
+            </h4>
             {tags
               ? backToTags?.map((tag, i) => (
                   <TagNames
@@ -61,7 +83,9 @@ export default function ProductTemplate(props) {
               : ''}
           </TagNamesWrapper>
           <div>
-            <CollectionBanner>CollectionBanner</CollectionBanner>
+            <CollectionBanner>
+              <CollectionPageBanner />
+            </CollectionBanner>
             <span>
               {
                 collections.find(
@@ -72,12 +96,10 @@ export default function ProductTemplate(props) {
             <TagNamesPicturesWrapper>
               {tags
                 ? backToTags?.map((tag, i) => (
-                    <TagNamePic
-                      role="presentation"
-                      key={i}
-                      onClick={() => handleTags(tag)}
-                    >
-                      <div>{tag}</div>
+                    <TagNamePic role="presentation" key={i}>
+                      <div onClick={() => handleTags(tag)} role="presentation">
+                        {tag}
+                      </div>
 
                       <div>
                         {
@@ -88,6 +110,8 @@ export default function ProductTemplate(props) {
 
                       <div>
                         <img
+                          onClick={() => handleTags(tag)}
+                          role="presentation"
                           src={
                             products.filter(
                               product => product.tags[0] === tag
@@ -96,6 +120,9 @@ export default function ProductTemplate(props) {
                           alt=" "
                         />
                       </div>
+                      <ShopNowBtn onClick={() => handleTags(tag)}>
+                        Shop Now
+                      </ShopNowBtn>
                     </TagNamePic>
                   ))
                 : ''}

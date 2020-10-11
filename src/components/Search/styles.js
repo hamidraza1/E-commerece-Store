@@ -5,7 +5,7 @@ export const SearchForm = styled.form`
   width: 100%;
 
   > input {
-    width: 92%;
+    width: 90%;
     border: none;
     display: block;
     font-size: 16px;
@@ -22,7 +22,7 @@ export const SearchIcon = styled.div`
   color: rgb(0, 153, 153);
   font-size: 20px;
   margin-left: ;
-  width: 8%;
+  width: 10%;
   @media (min-width: 786px) {
     margin-left: ;
   }

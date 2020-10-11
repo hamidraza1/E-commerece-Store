@@ -6,8 +6,12 @@ import {
   ImageGallery,
   ProductQuantityAdder,
   ProductContentfulDescription,
+  SEO,
 } from 'components';
+import { AiFillHome } from 'react-icons/ai';
+import { IoMdArrowDropright } from 'react-icons/io';
 import {
+  ProdTrack,
   Grid,
   InfoNImg,
   SelectWrapper,
@@ -27,6 +31,7 @@ import {
   Note,
 } from './styles';
 import CartContext from 'context/CartContext';
+import ProductContext from 'context/ProductContext';
 import { navigate, useLocation } from '@reach/router';
 import queryString from 'query-string';
 
@@ -39,6 +44,7 @@ export const query = graphql`
 `;
 
 export default function ProductTemplate(props) {
+  const { collections, products } = React.useContext(ProductContext);
   const { getProductById } = React.useContext(CartContext);
   /* const { recent, changeRecent } = React.useContext(CartContext); */
   const [product, setProduct] = React.useState(null);
@@ -72,9 +78,42 @@ export default function ProductTemplate(props) {
       }
     );
   };
+  const CurrentURLhandle = window.location.pathname.replace('/products/', '');
+  var pructsTag = products.find(product => product.handle === CurrentURLhandle)
+    ?.tags[0];
+  var TrackedCollection = collections.find(collection =>
+    collection.products.find(prod => prod.tags[0] === pructsTag)
+  )?.handle;
+  var TrackedTag = products.find(product => product.handle === CurrentURLhandle)
+    ?.tags[0];
 
   return (
     <Layout>
+      <SEO
+        description={props.data.shopifyProduct.title}
+        title={props.data.shopifyProduct.title}
+      />
+      <ProdTrack>
+        <div>
+          <AiFillHome onClick={() => navigate(`/`)} />
+        </div>
+        <IoMdArrowDropright />
+        <div
+          onClick={() => navigate(`/products/${TrackedCollection}`)}
+          role="presentation"
+        >
+          {TrackedCollection}
+        </div>
+        <IoMdArrowDropright />
+        <div
+          onClick={() => navigate(`/products/${TrackedTag}`)}
+          role="presentation"
+        >
+          {TrackedTag}
+        </div>
+        <IoMdArrowDropright />
+        <div>{CurrentURLhandle}</div>
+      </ProdTrack>
       <Grid>
         <InfoNImg>
           <Heading1>

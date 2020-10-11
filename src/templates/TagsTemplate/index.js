@@ -7,7 +7,8 @@ import {
 import { BsFillGrid3X3GapFill } from 'react-icons/bs';
 import { AiOutlineBars } from 'react-icons/ai';
 import { MdArrowDropUp, MdArrowDropDown } from 'react-icons/md';
-
+import { AiFillHome } from 'react-icons/ai';
+import { IoMdArrowDropright } from 'react-icons/io';
 import {
   Description,
   TagProd,
@@ -32,14 +33,35 @@ import {
   OriginalPrice,
   CartOption,
   StockStatus,
+  TagsTrack,
 } from './styles';
 import ProductContext from 'context/ProductContext';
 import { navigate } from '@reach/router';
 
 export default function TagsTemplate(props) {
   const [tileView, setTileView] = React.useState(false);
-  const { products } = React.useContext(ProductContext);
+  const { collections, products } = React.useContext(ProductContext);
+  const [brand, setBrand] = React.useState();
+  const [sortedProducts, setSortedProducts] = React.useState(products);
   const CurrentURLhandle = window.location.pathname.replace('/products/', '');
+  var tags = [];
+  var backToTags = [];
+
+  products
+    .map(product => product.tags[0])
+    .map(tag => {
+      tags.push(tag);
+      const uniqueTags = new Set(tags);
+      backToTags = [...uniqueTags];
+    });
+
+  const handleTags = tag => {
+    navigate(`/products/${tag}`);
+  };
+
+  const handleVendor = event => {
+    setBrand(event.target.innerText);
+  };
 
   const MoveToSinglePruduct = p => {
     navigate(`/products/${p.handle}`);
@@ -70,6 +92,32 @@ export default function TagsTemplate(props) {
     setReviews(!reviews);
   };
 
+  const handleSort = event => {
+    if (event.target.value === 'hightToLow') {
+      var sortedArray = products
+        .filter(prod => prod.tags[0] === CurrentURLhandle)
+        .sort(function (a, b) {
+          return (
+            b.priceRange.minVariantPrice.amount -
+            a.priceRange.minVariantPrice.amount
+          );
+        });
+      setSortedProducts(sortedArray);
+    } else if (event.target.value === 'Sort') {
+      setSortedProducts(products);
+    } else if (event.target.value === 'lowToHigh') {
+      sortedArray = products
+        .filter(prod => prod.tags[0] === CurrentURLhandle)
+        .sort(function (a, b) {
+          return (
+            a.priceRange.minVariantPrice.amount -
+            b.priceRange.minVariantPrice.amount
+          );
+        });
+      setSortedProducts(sortedArray);
+    }
+  };
+
   const container = {
     hidden: {
       height: 0,
@@ -83,9 +131,30 @@ export default function TagsTemplate(props) {
   };
   var vendors = products.map(product => product.vendor);
   var uniqueVendors = Array.from(new Set(vendors));
+  var pructsTag = sortedProducts.filter(
+    product => product.tags[0] === CurrentURLhandle
+  )[0].tags[0];
+  var TrackedCollection = collections.find(collection =>
+    collection.products.find(prod => prod.tags[0] === pructsTag)
+  ).handle;
 
+  console.log();
   return (
     <Layout>
+      <TagsTrack>
+        <div>
+          <AiFillHome onClick={() => navigate(`/`)} />
+        </div>
+        <IoMdArrowDropright />
+        <div
+          onClick={() => navigate(`/products/${TrackedCollection}`)}
+          role="presentation"
+        >
+          {TrackedCollection}
+        </div>
+        <IoMdArrowDropright />
+        <div>{CurrentURLhandle}</div>
+      </TagsTrack>
       <Description>
         <TagContentfulDescription />
       </Description>
@@ -107,9 +176,11 @@ export default function TagsTemplate(props) {
               animate={options ? 'show' : 'hidden'}
               style={{ originY: '0' }}
             >
-              {products.map(product => (
-                <span>
-                  <div>{product.tags[0]}</div>
+              {backToTags?.map((tag, i) => (
+                <span key={i}>
+                  <div onClick={() => handleTags(tag)} role="presentation">
+                    {tag}
+                  </div>
                 </span>
               ))}
             </Options>
@@ -160,12 +231,17 @@ export default function TagsTemplate(props) {
             >
               {uniqueVendors.map(vendor => (
                 <span>
-                  <div>{vendor}</div>
+                  <div onClick={handleVendor} role="presentation">
+                    {vendor}
+                  </div>
                   <div>
                     (
                     {
-                      products.filter(product => product.vendor === vendor)
-                        .length
+                      products.filter(
+                        product =>
+                          product.vendor === vendor &&
+                          product.tags[0] === CurrentURLhandle
+                      ).length
                     }
                     )
                   </div>
@@ -176,10 +252,10 @@ export default function TagsTemplate(props) {
         </CateogoriesSection>
         <ProdSection>
           <Sort>
-            <select>
-              <option>Sort</option>
-              <option>Name A-Z</option>
-              <option>Name Z-A</option>
+            <select onChange={handleSort}>
+              <option value={'Sort'}>Sort</option>
+              <option value={'lowToHigh'}>Price low-to-high</option>
+              <option value={'hightToLow'}>Price hight-to-low</option>
             </select>
             <div>
               <div>View</div>
@@ -193,8 +269,12 @@ export default function TagsTemplate(props) {
           </Sort>
 
           <ProdGrid tile={tileView}>
-            {products
-              .filter(product => product.tags[0] === CurrentURLhandle)
+            {sortedProducts
+              .filter(product =>
+                product.tags[0] === CurrentURLhandle && brand
+                  ? product.vendor === brand
+                  : product.tags[0] === CurrentURLhandle
+              )
               .map((p, i) => (
                 <Prod tile={tileView} key={i}>
                   <Text tile={tileView}>
@@ -202,11 +282,12 @@ export default function TagsTemplate(props) {
                       {p.title}
                     </ProdName>
                     <ProdVariant>
-                      {products.find(product => product.title === p.title)
+                      {sortedProducts.find(product => product.title === p.title)
                         .variants[0].title === 'Default Title'
                         ? 'Default Title'
-                        : products.find(product => product.title === p.title)
-                            .variants[0].title}
+                        : sortedProducts.find(
+                            product => product.title === p.title
+                          ).variants[0].title}
                     </ProdVariant>
                     <ProdDescription tile={tileView}>
                       {p.description}
@@ -217,8 +298,9 @@ export default function TagsTemplate(props) {
                   <ProdImage tile={tileView}>
                     <img
                       src={
-                        products.find(product => product.title === p.title)
-                          .images[0].originalSrc
+                        sortedProducts.find(
+                          product => product.title === p.title
+                        ).images[0].originalSrc
                       }
                       alt=" "
                     />
@@ -230,15 +312,18 @@ export default function TagsTemplate(props) {
                         <ProdPrice>
                           Now $
                           {
-                            products.find(product => product.title === p.title)
-                              .variants[0].price
+                            sortedProducts.find(
+                              product => product.title === p.title
+                            ).variants[0].price
                           }
                         </ProdPrice>
                         <OriginalPrice>
-                          {products.find(product => product.title === p.title)
-                            .variants[0].compareAtPriceV2 ? (
-                            products.find(product => product.title === p.title)
-                              .variants[0].compareAtPriceV2.amount
+                          {sortedProducts.find(
+                            product => product.title === p.title
+                          ).variants[0].compareAtPriceV2 ? (
+                            sortedProducts.find(
+                              product => product.title === p.title
+                            ).variants[0].compareAtPriceV2.amount
                           ) : (
                             <div></div>
                           )}
@@ -246,7 +331,7 @@ export default function TagsTemplate(props) {
                       </Price>
                     </PriceNReview>
                     <CartOption>
-                      {products.find(product => product.title === p.title)
+                      {sortedProducts.find(product => product.title === p.title)
                         .availableForSale ? (
                         <ProductQuantityAdder
                           available={p.variants[0].availableForSale}

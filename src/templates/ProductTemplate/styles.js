@@ -1,5 +1,39 @@
 import styled from 'styled-components';
 
+export const ProdTrack = styled.section`
+  display: flex;
+  align-items: center;
+  margin-top: -20px;
+  margin-bottom: 20px;
+  color: rgb(0, 158, 158);
+  font-size: 14px;
+  > div:nth-child(1) {
+    cursor: pointer;
+    &:hover {
+      color: rgb(1, 92, 92);
+    }
+  }
+  > div:nth-child(3) {
+    cursor: pointer;
+    color: black;
+    &:hover {
+      color: green;
+    }
+  }
+  > div:nth-child(5) {
+    cursor: pointer;
+    color: black;
+    &:hover {
+      color: green;
+    }
+  }
+  > div:nth-child(7) {
+    color: black;
+  }
+  > svg {
+    margin-top: 4px;
+  }
+`;
 export const Grid = styled.section`
   margin-top: 20px;
   background: white;

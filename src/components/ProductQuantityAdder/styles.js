@@ -29,6 +29,7 @@ export const AddToCartButton = styled.button`
   margin-bottom: 10px;
   margin-left: ;
   width: 100%;
+  cursor: pointer;
 `;
 export const IncrementBtn = styled.div`
   background: rgb(231, 234, 236);
@@ -39,6 +40,7 @@ export const IncrementBtn = styled.div`
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   width: 25%;
+  cursor: pointer;
 `;
 export const DecrementBtn = styled.div`
   background: rgb(231, 234, 236);
@@ -49,4 +51,5 @@ export const DecrementBtn = styled.div`
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   width: 25%;
+  cursor: pointer;
 `;

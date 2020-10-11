@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
 export const BannerWrapper = styled.div`
-  display: none;
+  display: block;
+  margin: 40px 0;
   @media (min-width: 768px) {
     display: block;
+    margin: 0;
   }
 `;
 export const BannerImage = styled.div`
@@ -26,13 +28,14 @@ export const BannerButtons = styled.div`
   background: white;
   color: rgb(0, 153, 153);
   font-size: 14px;
-  width: 100%;
+  width: 99.5%;
   .active {
     background: #099;
     color: white;
   }
   > div {
-    padding: 20px 0;
+    font-size: 7px;
+    padding: 5px 0;
     border-right: 1px solid #d8d8d8;
     width: 25%;
     text-align: center;
@@ -40,6 +43,22 @@ export const BannerButtons = styled.div`
     &:hover {
       background: #099;
       color: white;
+    }
+    @media (min-width: 425px) {
+      font-size: 9px;
+      padding: 10px 0;
+    }
+    @media (min-width: 560px) {
+      font-size: 12px;
+      padding: 13px 0;
+    }
+    @media (min-width: 768px) {
+      font-size: 13px;
+      padding: 15px 0;
+    }
+    @media (min-width: 1024px) {
+      font-size: 15px;
+      padding: 20px 0;
     }
   }
   > div:last-child {

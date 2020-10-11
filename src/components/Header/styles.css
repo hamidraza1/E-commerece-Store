@@ -1,0 +1,27 @@
+.navtriangle::after {
+  content: '';
+
+  z-index: 20000;
+  position: absolute;
+  top: 23px;
+  left: 14px;
+  background: white;
+  width: 15px;
+  height: 15px;
+  border-top: 1px solid #d8d8d8;
+  border-left: 1px solid #d8d8d8;
+  border-radius: 2px;
+  transform: rotate(45deg);
+  @media (min-width: 375px) {
+    top: 0px;
+    right: 0px;
+  }
+  @media (min-width: 430px) {
+    top: 0px;
+    right: 0px;
+  }
+  @media (min-width: 768px) {
+    top: ;
+    left: ;
+  }
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles.css';
 import {
   HeaderOuterMostWrapper,
   HeaderOuterdiv,
@@ -22,24 +23,34 @@ import { FiMenu } from 'react-icons/fi';
 import { MiniCart, HoveredTagsSection } from 'components';
 
 export function Header() {
-  const { products, collections } = React.useContext(ProductContext);
+  const { collections } = React.useContext(ProductContext);
   const [miniCartCard, setMiniCartCard] = React.useState(false);
   const [displayHovered, setDisplayHovered] = React.useState(false);
   const [collecionName, setCollecionName] = React.useState();
-
   const [menu, setMenu] = React.useState(false);
+
+  const moveToHomePage = () => {
+    navigate(`/`);
+  };
 
   const handleMenu = () => {
     setMenu(!menu);
   };
 
-  const collectionOptions = collection => {
-    setCollecionName(collection?.title);
+  const handleNav = () => {
+    if (displayHovered) {
+      setDisplayHovered(!displayHovered);
+    }
+  };
+  const openTrinagle = event => {
+    let title = event.target.innerText;
+    setCollecionName(title);
     if (!displayHovered) {
       setDisplayHovered(!displayHovered);
     }
   };
-  const removeCollectionHoverOptions = () => {
+
+  const closeHoveredTagsSection = () => {
     if (displayHovered) {
       setDisplayHovered(!displayHovered);
     }
@@ -56,7 +67,6 @@ export function Header() {
   const container = {
     hidden: {
       height: 0,
-
       transition: { duration: 0.3 },
     },
     show: {
@@ -67,13 +77,13 @@ export function Header() {
 
   return (
     <HeaderOuterMostWrapper>
-      <HeaderOuterdiv onMouseEnter={() => removeCollectionHoverOptions()}>
+      <HeaderOuterdiv onMouseEnter={handleNav}>
         <HeaderWrapper>
           <div>
             <Menu onClick={handleMenu}>
               <FiMenu size="1.5em" />
             </Menu>
-            <ShopName>ManchesterChemist</ShopName>
+            <ShopName onClick={moveToHomePage}>ManchesterChemist</ShopName>
           </div>
 
           <div>
@@ -116,22 +126,34 @@ export function Header() {
             animate={menu ? 'show' : 'hidden'}
             style={{ originY: '0' }}
           >
-            {collections.map((collection, i) => (
-              <Li
-                onMouseEnter={() => collectionOptions(collection)}
-                onClick={() => moveToTagsPage(collection)}
-                key={i}
-              >
-                <span>{collection.title}</span>
-              </Li>
-            ))}
+            <div onMouseEnter={handleNav} role="presentation"></div>
+            <span>
+              {collections.map((collection, i) => (
+                <Li key={i}>
+                  <span
+                    className="Span"
+                    onClick={() => moveToTagsPage(collection)}
+                    onMouseEnter={openTrinagle}
+                    role="presentation"
+                  >
+                    {collection.title}
+                  </span>
+                </Li>
+              ))}
+            </span>
+            <div onMouseEnter={handleNav} role="presentation"></div>
           </Ul>
-
-          <HoveredTagsSection
-            collecionName={collecionName}
-            displayHovered={displayHovered}
-            setDisplayHovered={setDisplayHovered}
-          />
+          <div
+            className="HoveredTagsSection"
+            onMouseLeave={closeHoveredTagsSection}
+            role="presentation"
+          >
+            <HoveredTagsSection
+              collecionName={collecionName}
+              displayHovered={displayHovered}
+              setDisplayHovered={setDisplayHovered}
+            />
+          </div>
         </Nav>
       </NavOuterdiv>
     </HeaderOuterMostWrapper>

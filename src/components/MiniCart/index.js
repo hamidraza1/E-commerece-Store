@@ -19,14 +19,14 @@ import { FaTrashAlt } from 'react-icons/fa';
 
 export function MiniCart() {
   const { checkout, updateLineItem } = React.useContext(CartContext);
-  const [savingsDes, setSavingsDes] = React.useState(false);
+  /*   const [savingsDes, setSavingsDes] = React.useState(false); */
 
   const handleAdjustQuantity = ({ quantity, variantId }) => {
     updateLineItem({ quantity, variantId });
   };
-  const handleSavingsDes = () => {
+  /* const handleSavingsDes = () => {
     setSavingsDes(!savingsDes);
-  };
+  }; */
   let totalQuantity = 0;
   if (checkout) {
     checkout.lineItems.forEach(lineItem => {
@@ -43,7 +43,14 @@ export function MiniCart() {
         <div role="presentation" onClick={moveToBasketPage}>
           View Basket
         </div>
-        <div>CheckOut</div>
+        <div
+          onClick={() => {
+            window.location.href = checkout.webUrl;
+          }}
+          role="presentation"
+        >
+          CheckOut
+        </div>
       </Btns>
 
       {checkout?.lineItems?.map(item => (

@@ -16,6 +16,7 @@ export const Btns = styled.div`
     border-radius: 5px;
     margin-right: 10px;
     margin-left: auto;
+    cursor: pointer;
   }
   > div:last-child {
     padding: 10px;

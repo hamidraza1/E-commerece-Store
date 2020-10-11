@@ -1,6 +1,33 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
+export const TagsTrack = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: -20px;
+  margin-bottom: 20px;
+  color: rgb(0, 158, 158);
+  font-size: 14px;
+  > div:nth-child(1) {
+    cursor: pointer;
+    &:hover {
+      color: rgb(1, 92, 92);
+    }
+  }
+  > div:nth-child(3) {
+    cursor: pointer;
+    color: black;
+    &:hover {
+      color: green;
+    }
+  }
+  > div:nth-child(5) {
+    color: black;
+  }
+  > svg {
+    margin-top: 4px;
+  }
+`;
 export const Description = styled.div``;
 export const TagProd = styled.div`
   display: flex;
@@ -76,6 +103,7 @@ export const Options = styled(motion.div)`
     > div {
       margin-bottom: 5px;
       margin-top: 5px;
+      cursor: pointer;
     }
   }
 `;
@@ -84,8 +112,10 @@ export const ProdSection = styled.div`
   background: white;
   flex-direction: column;
   width: 100%;
+  margin-top: 30px;
   @media (min-width: 768px) {
     width: 75%;
+    margin-top: 0;
   }
 `;
 export const Sort = styled.div`
@@ -97,6 +127,7 @@ export const Sort = styled.div`
   align-items: center;
 
   > select {
+    font-size: 14px;
     background: rgb(231, 234, 236);
     padding: 5px;
     border: none;
@@ -113,7 +144,10 @@ export const Sort = styled.div`
     }
   }
   > div:last-child {
-    display: inline-flex;
+    display: none;
+    @media (min-width: 768px) {
+      display: inline-flex;
+    }
     > div {
       margin-left: 10px;
       color: rgb(0, 153, 153);

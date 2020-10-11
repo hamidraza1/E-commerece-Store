@@ -9,7 +9,6 @@ import {
   ReviewNPrice,
   ReviewTile,
   ReviewGrid,
-  OriginalPrice,
   PriceNQuantity,
   Heading,
 } from './styles';
@@ -27,7 +26,6 @@ export function ProductTile({
   minPrice,
   handle,
 }) {
-  console.log(tileView);
   return (
     <ProductTileWrapper tileView={tileView}>
       <Heading tileView={tileView}>
@@ -38,7 +36,7 @@ export function ProductTile({
       </Heading>
 
       <Image tileView={tileView}>
-        <img src={imageFluid.src} />
+        <img alt="" src={imageFluid.src} />
       </Image>
 
       <PriceNQuantity tileView={tileView}>

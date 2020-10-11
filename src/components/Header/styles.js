@@ -102,8 +102,9 @@ export const CartContentsWrapper = styled.div`
   position: fixed;
   top: 100px;
   right: 0px;
-
+  z-index: 3000;
   width: 100%;
+
   @media (min-width: 430px) {
     top: 50px;
   }
@@ -150,6 +151,7 @@ export const ShopName = styled.div`
   color: white;
   letter-spacing: -1px;
   padding: 20px 10px;
+  cursor: pointer;
 `;
 
 export const Nav = styled(motion.nav)`
@@ -161,32 +163,63 @@ export const Nav = styled(motion.nav)`
   position: relative;
 `;
 export const Ul = styled(motion.div)`
+  > span:nth-child(1) {
+    width: auto;
+  }
+  > span {
+    display: flex;
+    margin-right: -5px;
+    flex-direction: column;
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
+  > div:first-child {
+    width: 25px;
+  }
+  > div:last-child {
+    width: 100%;
+  }
   overflow: hidden;
   width: 100%;
+  position: relative;
   @media (min-width: 768px) {
     height: auto !important;
     display: flex;
-
+    overflow: visible;
     width: 100%;
     background: white;
   }
 `;
 export const Li = styled(motion.div)`
+  width: 100%;
+  @media (min-width: 768px) {
+    width: 70px;
+  }
+  > div:nth-child(1) {
+    width: 10px;
+  }
   border-bottom: 0.5px solid #099;
   font-weight: 600;
   font-size: 16px;
-  padding: 14px 0;
-  padding-left: 14px;
+  padding: 7px 0;
+  padding-left: 0px;
 
   @media (min-width: 768px) {
     border: 0;
     font-weight: 400;
     font-size: 14px;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 0px;
+    margin-left: 0px;
+    width: ;
   }
   > span {
     color: rgb(71, 71, 71);
+    cursor: pointer;
+    position: relative;
+    padding-right: 0px;
+    display: block;
+    width: 100%;
   }
 `;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Checkbox } from 'components';
-import { navigate, useLocation } from '@reach/router';
+import { navigate } from '@reach/router';
 import {
   PriceFilterItemWrapper,
   PriceFilterItemInner,
@@ -8,17 +8,17 @@ import {
   FiveToTenDiv,
   MoreThanTenDiv,
 } from './styles';
-import queryString from 'query-string';
+/* import queryString from 'query-string'; */
 
 export function PriceFilterItem() {
-  const { search } = useLocation();
-  const qs = queryString.parse(search);
+  /*   const { search } = useLocation(); */
+  /* const qs = queryString.parse(search); */
   const [lessThanFive, setLessThanfive] = React.useState(false);
   const [fiveToTen, setfiveToTen] = React.useState(false);
   const [moreThanTen, setmoreThanTen] = React.useState(false);
-  const c = queryString.parse(search)?.c || '';
+  /* const c = queryString.parse(search)?.c || '';
   const searchTerm = qs.s;
-  const priceFilter = qs.p;
+  const priceFilter = qs.p; */
 
   let navigateTo = '/all-products';
 
