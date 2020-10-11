@@ -17,45 +17,49 @@ export function RecentViewedProducts({ Array }) {
 
   return (
     <RecentViewedProductsWrapper>
-      {Array.map((prod, i) => (
-        <ProductWrapper key={i}>
-          <Title>{products.find(p => p.shopifyId === Array[i]).title}</Title>
+      {Array
+        ? Array.map((prod, i) => (
+            <ProductWrapper key={i}>
+              <Title>
+                {products.find(p => p.shopifyId === Array[i]).title}
+              </Title>
 
-          <MainImage>
-            <img
-              alt=""
-              src={
-                products.find(p => p.shopifyId === Array[i]).images[0].localFile
-                  .childImageSharp.fluid.src
-              }
-            />
-          </MainImage>
+              <MainImage>
+                <img
+                  alt=""
+                  src={
+                    products.find(p => p.shopifyId === Array[i]).images[0]
+                      .localFile.childImageSharp.fluid.src
+                  }
+                />
+              </MainImage>
 
-          <PriceNReview>
-            <Review>Review</Review>
-            <Price>
-              $
-              {
-                products.find(p => p.shopifyId === Array[i]).priceRange
-                  .minVariantPrice.amount
-              }
-            </Price>
-          </PriceNReview>
+              <PriceNReview>
+                <Review>Review</Review>
+                <Price>
+                  $
+                  {
+                    products.find(p => p.shopifyId === Array[i]).priceRange
+                      .minVariantPrice.amount
+                  }
+                </Price>
+              </PriceNReview>
 
-          <ProductQuantityAdderWrapper>
-            <ProductQuantityAdder
-              available={
-                products.find(p => p.shopifyId === Array[i]).variants[0]
-                  .availableForSale
-              }
-              variantId={
-                products.find(p => p.shopifyId === Array[i]).variants[0]
-                  .shopifyId
-              }
-            />
-          </ProductQuantityAdderWrapper>
-        </ProductWrapper>
-      ))}
+              <ProductQuantityAdderWrapper>
+                <ProductQuantityAdder
+                  available={
+                    products.find(p => p.shopifyId === Array[i]).variants[0]
+                      .availableForSale
+                  }
+                  variantId={
+                    products.find(p => p.shopifyId === Array[i]).variants[0]
+                      .shopifyId
+                  }
+                />
+              </ProductQuantityAdderWrapper>
+            </ProductWrapper>
+          ))
+        : ''}
     </RecentViewedProductsWrapper>
   );
 }

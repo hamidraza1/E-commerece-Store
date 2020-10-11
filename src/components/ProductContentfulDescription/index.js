@@ -46,6 +46,7 @@ export function ProductContentfulDescription({ title, id }) {
   const { changeRecent } = React.useContext(CartContext);
   const { allContentfulBannerPost } = useStaticQuery(query);
   const [descript, setDescript] = React.useState(null);
+  const [Array, setArray] = React.useState();
   const Productdata = allContentfulBannerPost.edges.find(
     ({ node }) => node.title === title
   )?.node;
@@ -79,8 +80,9 @@ export function ProductContentfulDescription({ title, id }) {
     btns[0] ? btns[0].classList.add('active') : console.log('by');
     changeRecent(id);
   }, [changeRecent, id]);
-
-  const Array = JSON.parse(localStorage.getItem('RecentProductsArray'));
+  React.useEffect(() => {
+    setArray(JSON.parse(localStorage.getItem('RecentProductsArray')));
+  }, []);
 
   const handleTitle = event => {
     var reqdescription = output.find(out => {
