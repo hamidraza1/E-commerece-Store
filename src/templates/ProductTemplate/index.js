@@ -49,6 +49,7 @@ export default function ProductTemplate(props) {
   /* const { recent, changeRecent } = React.useContext(CartContext); */
   const [product, setProduct] = React.useState(null);
   const [selectedVariant, setSelectedVariant] = React.useState(null);
+  const [CurrentURLhandle, setCurrentURLhandle] = React.useState();
   const { search, origin, pathname } = useLocation();
   const variantId = queryString.parse(search).variant;
 
@@ -65,7 +66,6 @@ export default function ProductTemplate(props) {
     props.data.shopifyProduct.shopifyId,
     variantId,
   ]);
-  React.useEffect(() => {}, []);
 
   const handleVariantChange = e => {
     const newVariant = product?.variants.find(v => v.id === e.target.value);
@@ -78,7 +78,10 @@ export default function ProductTemplate(props) {
       }
     );
   };
-  const CurrentURLhandle = window.location.pathname.replace('/products/', '');
+  React.useEffect(() => {
+    setCurrentURLhandle(window.location.pathname.replace('/products/', ''));
+  }, []);
+
   var pructsTag = products.find(product => product.handle === CurrentURLhandle)
     ?.tags[0];
   var TrackedCollection = collections.find(collection =>

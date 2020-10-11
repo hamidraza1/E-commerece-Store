@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-onchange*/
 import React from 'react';
 import {
   Layout,
@@ -43,7 +44,10 @@ export default function TagsTemplate(props) {
   const { collections, products } = React.useContext(ProductContext);
   const [brand, setBrand] = React.useState();
   const [sortedProducts, setSortedProducts] = React.useState(products);
-  const CurrentURLhandle = window.location.pathname.replace('/products/', '');
+  const [CurrentURLhandle, setCurrentURLhandle] = React.useState();
+  React.useEffect(() => {
+    setCurrentURLhandle(window.location.pathname.replace('/products/', ''));
+  }, [CurrentURLhandle]);
   var tags = [];
   var backToTags = [];
 
@@ -53,6 +57,7 @@ export default function TagsTemplate(props) {
       tags.push(tag);
       const uniqueTags = new Set(tags);
       backToTags = [...uniqueTags];
+      return true;
     });
 
   const handleTags = tag => {
@@ -131,12 +136,15 @@ export default function TagsTemplate(props) {
   };
   var vendors = products.map(product => product.vendor);
   var uniqueVendors = Array.from(new Set(vendors));
-  var pructsTag = sortedProducts.filter(
-    product => product.tags[0] === CurrentURLhandle
-  )[0].tags[0];
-  var TrackedCollection = collections.find(collection =>
-    collection.products.find(prod => prod.tags[0] === pructsTag)
-  ).handle;
+  var pructsTag = CurrentURLhandle
+    ? sortedProducts.filter(product => product.tags[0] === CurrentURLhandle)[0]
+        .tags[0]
+    : '';
+  var TrackedCollection = CurrentURLhandle
+    ? collections.find(collection =>
+        collection.products.find(prod => prod.tags[0] === pructsTag)
+      ).handle
+    : '';
 
   console.log();
   return (
@@ -229,8 +237,8 @@ export default function TagsTemplate(props) {
               animate={brands ? 'show' : 'hidden'}
               style={{ originY: '0' }}
             >
-              {uniqueVendors.map(vendor => (
-                <span>
+              {uniqueVendors.map((vendor, i) => (
+                <span key={i}>
                   <div onClick={handleVendor} role="presentation">
                     {vendor}
                   </div>

@@ -25,9 +25,12 @@ export default function ProductTemplate(props) {
   const { products, collections } = React.useContext(ProductContext);
   /* const [tagsName, setTagsName] = React.useState(); */
   const tagId = props.pageContext.shopifyId;
+  const [CurrentURLhandle, setCurrentURLhandle] = React.useState();
   var tags = [];
   var backToTags = [];
-  const CurrentURLhandle = window.location.pathname.replace('/products/', '');
+  React.useEffect(() => {
+    setCurrentURLhandle(window.location.pathname.replace('/products/', ''));
+  }, [CurrentURLhandle]);
 
   collections
     .find(collection => collection.shopifyId === tagId)
@@ -87,11 +90,11 @@ export default function ProductTemplate(props) {
               <CollectionPageBanner />
             </CollectionBanner>
             <span>
-              {
-                collections.find(
-                  collection => collection.handle === CurrentURLhandle
-                ).description
-              }
+              {CurrentURLhandle
+                ? collections.find(
+                    collection => collection.handle === CurrentURLhandle
+                  ).description
+                : ''}
             </span>
             <TagNamesPicturesWrapper>
               {tags

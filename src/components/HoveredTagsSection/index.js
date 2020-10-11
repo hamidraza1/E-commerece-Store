@@ -82,6 +82,7 @@ export function HoveredTagsSection({ collecionName, displayHovered }) {
                   tags.push(...product.tags);
                   const uniqueTags = new Set(tags);
                   backToTags = [...uniqueTags];
+                  return true;
                 })
             : ''}
           <HoveredTags>
