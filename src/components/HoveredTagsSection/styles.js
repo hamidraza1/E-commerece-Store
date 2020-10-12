@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 
 export const HoveredTagsSectionWrapper = styled.div`
-  display: ${props => (props.displayHovered ? 'flex' : 'none')};
+  display: none;
+  @media (min-width: 768px) {
+    display: ${props => (props.displayHovered ? 'flex' : 'none')};
+  }
+
   flex-direction: column;
   position: absolute;
   z-index: 10;

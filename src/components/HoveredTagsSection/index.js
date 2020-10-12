@@ -13,10 +13,12 @@ import {
   FanousBrandsLogo,
 } from './styles';
 import { RiArrowRightSLine } from 'react-icons/ri';
+
 export function HoveredTagsSection({ collecionName, displayHovered }) {
   const { products, collections } = React.useContext(ProductContext);
 
   const [prodHeading, setProdHeading] = React.useState();
+  const [FirstProdArray, setFirstProdArray] = React.useState();
   const [tagsName, setTagsName] = React.useState();
   const [index, setIndex] = React.useState(0);
   var tags = [];
@@ -28,9 +30,13 @@ export function HoveredTagsSection({ collecionName, displayHovered }) {
         setIndex(i);
       }
     });
-  }, [collections, collecionName]);
 
-  let FirstProdArray = collecionName
+    setFirstProdArray(
+      products.filter(prod => prod.tags[0] === backToTags[0]).map(p => p.title)
+    );
+  }, [collections, collecionName, products]);
+
+  /* let FirstProdArray = collecionName
     ? collections
         .find(collection => collection.title === collecionName)
         .products.filter(
@@ -40,7 +46,7 @@ export function HoveredTagsSection({ collecionName, displayHovered }) {
               .products[0].tags[0]
         )
         .map(p => p.title)
-    : '';
+    : ''; */
 
   if (collecionName) {
     collections
@@ -50,9 +56,10 @@ export function HoveredTagsSection({ collecionName, displayHovered }) {
 
   const tagOptions = event => {
     let hoveredTag = event.target.innerText;
-
     setTagsName(
-      products.filter(prod => prod.tags === hoveredTag).map(p => p.title)
+      products
+        .filter(prod => prod.tags[0] === event.target.innerText)
+        .map(p => p.title)
     );
     setProdHeading(hoveredTag);
   };

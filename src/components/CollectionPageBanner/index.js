@@ -24,7 +24,7 @@ const query = graphql`
 export function CollectionPageBanner() {
   const { allContentfulBannerPost } = useStaticQuery(query);
   const HomePageBannerData = allContentfulBannerPost.edges.find(
-    ({ node }) => node.title === 'Banner'
+    ({ node }) => node.title === 'CollectionBanner'
   ).node.images;
 
   const data = HomePageBannerData.map(img => {

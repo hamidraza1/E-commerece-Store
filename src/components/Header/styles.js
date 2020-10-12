@@ -200,6 +200,7 @@ export const Li = styled(motion.div)`
     width: 10px;
   }
   border-bottom: 0.5px solid #099;
+  border-top: 0.5px solid #099;
   font-weight: 600;
   font-size: 16px;
   padding: 7px 0;
