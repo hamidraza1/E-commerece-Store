@@ -31,8 +31,9 @@ export function HoveredTagsSection({ collecionName, displayHovered }) {
       }
     });
 
-    setFirstProdArray();
-    products.filter(prod => prod.tags[0] === backToTags[0]).map(p => p.title);
+    setFirstProdArray(
+      products.filter(prod => prod.tags[0] === backToTags[0]).map(p => p.title)
+    );
   }, [collections, collecionName, products]);
 
   /* let FirstProdArray = collecionName
