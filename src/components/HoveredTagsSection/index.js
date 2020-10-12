@@ -31,9 +31,8 @@ export function HoveredTagsSection({ collecionName, displayHovered }) {
       }
     });
 
-    setFirstProdArray(
-      products.filter(prod => prod.tags[0] === backToTags[0]).map(p => p.title)
-    );
+    setFirstProdArray();
+    /* products.filter(prod => prod.tags[0] === backToTags[0]).map(p => p.title) */
   }, [collections, collecionName, products]);
 
   /* let FirstProdArray = collecionName
@@ -68,7 +67,6 @@ export function HoveredTagsSection({ collecionName, displayHovered }) {
   const moveToProdPage = event => {
     let hoveredProd = event.target.innerText;
     hoveredProd = hoveredProd.replace(/\s+/g, '-').toLowerCase();
-
     navigate(`/products/${hoveredProd}`);
   };
   let FirstTagTitle = collecionName
