@@ -28,8 +28,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-shopify',
       options: {
-        shopName: process.env.SHOPIFY_STORE_NAME,
-        accessToken: process.env.SHOPIFY_ACCESS_TOKEN,
+        shopName: process.env.GATSBY_STORE_NAME,
+        accessToken: process.env.GATSBY_ACCESS_TOKEN,
         apiVersion: '2020-07',
       },
     },
