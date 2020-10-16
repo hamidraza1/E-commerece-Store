@@ -146,7 +146,6 @@ export default function TagsTemplate(props) {
       ).handle
     : '';
 
-  console.log();
   return (
     <Layout>
       <TagsTrack>

@@ -25,3 +25,5 @@ export * from './RecentViewedProducts';
 export * from './MiniCart';
 export * from './HoveredTagsSection';
 export * from './HomePageProducts';
+export * from './Form';
+export * from './RecordContent';

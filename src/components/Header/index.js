@@ -83,7 +83,9 @@ export function Header() {
             <Menu onClick={handleMenu}>
               <FiMenu size="1.5em" />
             </Menu>
-            <ShopName onClick={moveToHomePage}>Manchester Chemist</ShopName>
+            <ShopName onClick={moveToHomePage}>
+              Manchester Chemist Shop
+            </ShopName>
           </div>
 
           <div>

@@ -19,6 +19,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 
 export function MiniCart() {
   const { checkout, updateLineItem } = React.useContext(CartContext);
+
   /*   const [savingsDes, setSavingsDes] = React.useState(false); */
 
   const handleAdjustQuantity = ({ quantity, variantId }) => {
@@ -45,7 +46,8 @@ export function MiniCart() {
         </div>
         <div
           onClick={() => {
-            window.location.href = checkout.webUrl;
+            /* window.location.href = checkout.webUrl; */
+            navigate(`/medicalHistory`);
           }}
           role="presentation"
         >

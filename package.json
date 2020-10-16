@@ -6,6 +6,8 @@
   "author": "Tom Phillips <info@tomphill.co.uk>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.7",
+    "emailjs-com": "^2.6.3",
+    "firebase": "^7.23.0",
     "framer-motion": "^2.6.15",
     "gatsby": "^2.23.12",
     "gatsby-background-image": "^1.1.1",
