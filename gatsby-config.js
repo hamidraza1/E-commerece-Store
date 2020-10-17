@@ -65,8 +65,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-yotpo-shopify',
       options: {
-        shopName: process.env.SHOPIFY_STORE_NAME,
-        shopifyAccessToken: process.env.SHOPIFY_ACCESS_TOKEN,
+        shopName: process.env.GATSBY_STORE_NAME,
+        shopifyAccessToken: process.env.GATSBY_ACCESS_TOKEN,
         yotpoAppKey: process.env.YOTPO_APP_KEY,
         apiVersion: '2020-07',
       },
