@@ -19,6 +19,8 @@ import {
   Pregnant,
   Date,
   Time,
+  Gender,
+  FirstContact,
 } from './styles';
 export function RecordContent() {
   let [Patients, setPatient] = React.useState(null);
@@ -44,28 +46,44 @@ export function RecordContent() {
       {Patients?.Patients.map((patient, i) => (
         <RecordInnerContent key={i}>
           <Header>
-            <FirstName>
-              <span>FirstName:</span>
-              <span>{patient.firstName}</span>
-            </FirstName>
-            <LastName>
-              <span>LastName:</span>
-              <span>{patient.lastName}</span>
-            </LastName>
-            <Email>
-              <span>Email:</span>
-              <span>{patient.email}</span>
-            </Email>
-            <DOB>
-              <span>DOB:</span>
-              <span>{patient.dob}</span>
-            </DOB>
+            <div>
+              <FirstName>
+                <span>FirstName:</span>
+                <span>{patient.firstName}</span>
+              </FirstName>
+              <LastName>
+                <span>LastName:</span>
+                <span>{patient.lastName}</span>
+              </LastName>
+              <Gender>
+                <span>Gender:</span>
+                <span>{patient.gender}</span>
+              </Gender>
+            </div>
+            <div>
+              <Email>
+                <span>Email:</span>
+                <span>{patient.email}</span>
+              </Email>
+              <FirstContact>
+                <span>Contact:</span>
+                <span>{patient.firstContact}</span>
+              </FirstContact>
+              <DOB>
+                <span>DOB:</span>
+                <span>{patient.dob}</span>
+              </DOB>
+            </div>
           </Header>
           <OtherMan>
             <SecondName>
               <span>Who is the medicine for?</span>
               <span>{patient.secondName}</span>
             </SecondName>
+            <SecondDOB>
+              <span>Contact:</span>
+              <span>{patient.secondContact}</span>
+            </SecondDOB>
             <SecondDOB>
               <span>DOB:</span>
               <span>{patient.seconddob}</span>

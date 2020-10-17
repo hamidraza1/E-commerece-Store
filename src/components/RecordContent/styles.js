@@ -10,10 +10,21 @@ export const RecordInnerContent = styled.div`
 
 export const Header = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   padding: 20px 10px;
   background: rgb(0, 158, 158);
   color: white;
+  > div:nth-child(1) {
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 3fr;
+    margin: 5px 0;
+  }
+  > div:nth-child(2) {
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 3fr;
+    margin: 5px 0;
+  }
 `;
 export const FirstName = styled.div`
   > span:nth-child(1) {
@@ -33,6 +44,16 @@ export const LastName = styled.div`
     margin-left: 6px;
   }
 `;
+export const Gender = styled.div`
+  text-align: center;
+  > span:nth-child(1) {
+    font-size: 14px;
+  }
+  > span:nth-child(2) {
+    font-weight: 600;
+    margin-left: 6px;
+  }
+`;
 export const Email = styled.div`
   > span:nth-child(1) {
     font-size: 14px;
@@ -43,6 +64,16 @@ export const Email = styled.div`
   }
 `;
 export const DOB = styled.div`
+  text-align: center;
+  > span:nth-child(1) {
+    font-size: 14px;
+  }
+  > span:nth-child(2) {
+    font-weight: 600;
+    margin-left: 6px;
+  }
+`;
+export const FirstContact = styled.div`
   > span:nth-child(1) {
     font-size: 14px;
   }
