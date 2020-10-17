@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-onchange*/
 import React from 'react';
 import firebase from './firebase';
 /* import CartContext from 'context/CartContext'; */

@@ -1,8 +1,8 @@
-import React from 'react';
-export function RecordContent() {
-  return <div>RecordContent</div>;
-}
 /* import React from 'react';
+export function RecordContent() {
+  return <div>RecordContent</div>; */
+
+import React from 'react';
 import firebase from '../Form/firebase';
 import {
   RecordContentWrapper,
@@ -128,4 +128,3 @@ export function RecordContent() {
     </RecordContentWrapper>
   );
 }
- */
