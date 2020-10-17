@@ -68,7 +68,6 @@ export function Form() {
   const [pregnant, setPregnant] = React.useState('No');
   const [onGoingMedication, setOnGoingMedication] = React.useState('');
 
-  console.log(gender);
   const handleSubmit = e => {
     e.preventDefault();
     firebase
