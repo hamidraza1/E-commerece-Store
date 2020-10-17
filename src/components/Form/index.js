@@ -1,7 +1,6 @@
-/* eslint-disable jsx-a11y/no-onchange*/
 import React from 'react';
 import firebase from './firebase';
-import CartContext from 'context/CartContext';
+/* import CartContext from 'context/CartContext'; */
 import {
   FormWrapper,
   FormInnerContent,
@@ -52,7 +51,7 @@ import {
   FormButton,
 } from './styles';
 export function Form() {
-  const { checkout } = React.useContext(CartContext);
+  /* const { checkout } = React.useContext(CartContext); */
   const [FirstName, setFirstName] = React.useState('');
   const [LastName, setLastName] = React.useState('');
   const [dob, setDob] = React.useState('');
@@ -107,7 +106,6 @@ export function Form() {
     setOnGoingMedication('');
     setGender('');
     setPregnant('');
-    window.location.href = checkout.webUrl;
   };
 
   return (
@@ -122,7 +120,6 @@ export function Form() {
               placeholder="John"
               value={FirstName}
               onChange={e => setFirstName(e.target.value)}
-              required
             />
           </FirstNameWrapper>
           <LastNameWrapper>
@@ -131,7 +128,6 @@ export function Form() {
               placeholder="Smith"
               value={LastName}
               onChange={e => setLastName(e.target.value)}
-              required
             />
           </LastNameWrapper>
         </NameWrapper>
@@ -143,7 +139,6 @@ export function Form() {
               placeholder="DD-MM-YYYY"
               value={dob}
               onChange={e => setDob(e.target.value)}
-              required
             />
           </DOBWrapper>
           <EmailWrapper>
@@ -152,7 +147,6 @@ export function Form() {
               placeholder="someone@gmail.com"
               value={Email}
               onChange={e => setEmail(e.target.value)}
-              required
             />
           </EmailWrapper>
         </DOBEmailWrapper>
@@ -164,7 +158,6 @@ export function Form() {
             placeholder="+44 1234 5678910"
             value={firstContact}
             onChange={e => setFirstContact(e.target.value)}
-            required
           />
         </FirstContactWrapper>
         {/* ..............Second Name and Date of Birth................ */}
@@ -175,7 +168,6 @@ export function Form() {
               placeholder="John Smith"
               value={secondName}
               onChange={e => setSecondName(e.target.value)}
-              required
             />
           </SecondNameWrapper>
           <SecondDOBWrapper>
@@ -208,7 +200,6 @@ export function Form() {
             placeholder="What symptoms do you got?"
             value={symptoms}
             onChange={e => setSymptoms(e.target.value)}
-            required
           />
         </SymptomsWrapper>
         {/*......... Symptoms Duration.............. */}
@@ -220,7 +211,6 @@ export function Form() {
             placeholder="For how long do you have these symptoms?"
             value={symptomsduration}
             onChange={e => setSymptomsduration(e.target.value)}
-            required
           />
         </SymptomsDurationWrapper>
 
@@ -231,7 +221,6 @@ export function Form() {
             placeholder="What Medications have you tried for these medicines?"
             value={previousMedication}
             onChange={e => setPreviousMedication(e.target.value)}
-            required
           />
         </PrviousMedicationWrapper>
 
@@ -244,7 +233,6 @@ export function Form() {
             placeholder="Are you on any other regular medications at moment?"
             value={onGoingMedication}
             onChange={e => setOnGoingMedication(e.target.value)}
-            required
           />
         </OnGoingMedicationWrapper>
         {/*......... Pregnant.............. */}
