@@ -1,7 +1,7 @@
+/* eslint-disable jsx-a11y/no-onchange*/
 import React from 'react';
 import firebase from './firebase';
 import CartContext from 'context/CartContext';
-import { navigate } from '@reach/router';
 import {
   FormWrapper,
   FormInnerContent,
@@ -268,7 +268,7 @@ export function Form() {
               <span>Yes</span>
             </div>
             <div>
-              <input type="radio" value="No" name="Pregnant" checked />
+              <input type="radio" value="No" name="Pregnant" defaultChecked />
               <span> No</span>
             </div>
             <div>
