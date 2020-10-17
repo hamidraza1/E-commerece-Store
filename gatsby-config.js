@@ -65,10 +65,9 @@ module.exports = {
     {
       resolve: 'gatsby-source-yotpo-shopify',
       options: {
-        shopName: process.env.GATSBY_STORE_NAME,
-        shopifyAccessToken: process.env.GATSBY_ACCESS_TOKEN,
-        yotpoAppKey: process.env.YOTPO_APP_KEY,
-        apiVersion: '2020-07',
+        shopName: `MyChemistry`,
+        shopifyAccessToken: `679c479114cb015b8176b70be0aa4f61`,
+        yotpoAppKey: `anEQ6vnZofKCvWIbAf4NkNPXad0ocbMtdIxbr6CW`,
       },
     },
     /* {
