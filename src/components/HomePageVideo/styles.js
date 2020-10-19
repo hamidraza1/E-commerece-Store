@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const HomePageVideoWrapper = styled.div`
   margin-top: 100px;
+  cursor: pointer;
   @media (min-width: 425px) {
     margin-top: 60px;
   }

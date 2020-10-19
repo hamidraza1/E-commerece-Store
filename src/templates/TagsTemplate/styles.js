@@ -4,10 +4,13 @@ import { motion } from 'framer-motion';
 export const TagsTrack = styled.div`
   display: flex;
   align-items: center;
-  margin-top: -20px;
+  margin-top: 80px;
   margin-bottom: 20px;
   color: #00b034;
   font-size: 14px;
+  @media (min-width: 768px) {
+    margin-top: 0;
+  }
   > div:nth-child(1) {
     cursor: pointer;
     &:hover {

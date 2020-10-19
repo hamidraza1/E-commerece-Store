@@ -19,7 +19,7 @@ export function HomePageProducts() {
     <HomePageProductsWrapper>
       <MainTitle>
         <BsFillStarFill size="1.5rem" />
-        Random Products
+        Popular Products
       </MainTitle>
       <ProductGridWrapper>
         {products.map((product, i) => (

@@ -1,8 +1,11 @@
 import React from 'react';
+import { navigate } from '@reach/router';
 import { HomePageVideoWrapper } from './styles';
 export function HomePageVideo() {
   return (
-    <HomePageVideoWrapper>
+    <HomePageVideoWrapper
+      onClick={() => navigate(`https://manchesterchemist.com/register`)}
+    >
       <video
         loop
         autoPlay

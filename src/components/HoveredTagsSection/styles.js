@@ -72,7 +72,7 @@ export const HoveredTags = styled.div`
     font-size: 15px;
     &:hover {
       cursor: pointer;
-      background: rgb(181, 176, 174);
+      background: rgb(167, 242, 189);
     }
     > svg {
       color: #00b034;

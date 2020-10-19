@@ -113,7 +113,11 @@ export function Header() {
             <span>
               <FaUserCircle size="1.5em" />
             </span>
-            <button>Sign In/Up</button>
+            <button
+              onClick={() => navigate(`https://manchesterchemist.com/register`)}
+            >
+              Sign In/Up
+            </button>
 
             <span>
               <MiniCartWrapperButton role="presentation" ref={btncartt}>

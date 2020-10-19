@@ -40,7 +40,7 @@ export function Footer() {
         </FooterLogo>
         <div>
           <span>
-            <div>2020 Manchester Chemist.co.uk</div>
+            <div>2020 Manchesterchemist.shop</div>
             <div>
               <span>Privacy</span>|<span>Terms & conditions</span>|
               <span> Site map</span>
