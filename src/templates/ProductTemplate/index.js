@@ -145,9 +145,9 @@ export default function ProductTemplate(props) {
                 {!!selectedVariant && (
                   <PriceNQuantity>
                     <div>
-                      <ReducedPrice>${selectedVariant.price}</ReducedPrice>{' '}
+                      <ReducedPrice>£{selectedVariant.price}</ReducedPrice>{' '}
                       <OriginalPrice>
-                        Was ${selectedVariant.compareAtPrice}
+                        Was £{selectedVariant.compareAtPrice}
                       </OriginalPrice>{' '}
                     </div>
 
@@ -166,7 +166,7 @@ export default function ProductTemplate(props) {
                     >
                       {product.variants.map(v => (
                         <option key={v.id} value={v.id}>
-                          {v.title} - ${selectedVariant.price}
+                          {v.title} - £{selectedVariant.price}
                         </option>
                       ))}
                     </select>

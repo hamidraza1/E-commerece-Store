@@ -67,7 +67,7 @@ export function MiniCart() {
           <Del>
             <RemoveLineItem lineItemId={item.id} />
           </Del>
-          <Price>${item.variant.price}</Price>
+          <Price>£{item.variant.price}</Price>
         </CartItem>
       ))}
       <Total>
@@ -78,7 +78,7 @@ export function MiniCart() {
           <span>Empty Basket</span> */}
         </Bin>
         <TotalPrice>
-          Subtotal:<span>${checkout?.totalPrice}</span>
+          Subtotal:<span>£{checkout?.totalPrice}</span>
         </TotalPrice>
       </Total>
     </MyItems>

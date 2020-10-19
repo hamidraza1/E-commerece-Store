@@ -317,7 +317,7 @@ export default function TagsTemplate(props) {
                       <div>Reviews</div>
                       <Price tile={tileView}>
                         <ProdPrice>
-                          Now $
+                          Now £
                           {
                             sortedProducts.find(
                               product => product.title === p.title
