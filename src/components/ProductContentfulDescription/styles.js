@@ -36,9 +36,9 @@ export const RecentViewedWrapper = styled.div`
     text-align: center;
     width: 90%;
     margin: 20px auto;
-    color: rgb(0, 153, 153);
+    color: #00b034;
     padding: 20px 0;
-    border-bottom: 1px solid #d8d8d8;
+    border-bottom: 1px solid #00b034;
   }
 `;
 
@@ -48,7 +48,7 @@ export const Titles = styled.div`
 
   > div {
     padding: 15px 0;
-    background: rgb(118, 134, 144);
+    background: #00b034;
     color: white;
     text-align: center;
     width: 100%;
@@ -58,11 +58,11 @@ export const Titles = styled.div`
     font-size: 14px;
     &:hover {
       background: white;
-      color: rgb(118, 134, 144);
+      color: #00b034;
     }
     &.active {
       background: white;
-      color: rgb(118, 134, 144);
+      color: #00b034;
     }
   }
 `;

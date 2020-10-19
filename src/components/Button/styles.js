@@ -21,9 +21,9 @@ export const Button = styled.button`
   font-weight: bold;
   text-transform: uppercase;
   background: white;
-  color: rgb(0, 153, 153);
+  color: #00b034;
 
-  border: none;
+  border: 1px solid #00b034;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   white-space: no-wrap;

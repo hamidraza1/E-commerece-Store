@@ -15,7 +15,7 @@ import {
 import { QuantityAdjuster } from '../QuantityAdjuster';
 import { RemoveLineItem } from '../RemoveLineItem';
 import { navigate } from '@reach/router';
-import { FaTrashAlt } from 'react-icons/fa';
+/* import { FaTrashAlt } from 'react-icons/fa'; */
 
 export function MiniCart() {
   const { checkout, updateLineItem } = React.useContext(CartContext);
@@ -72,10 +72,10 @@ export function MiniCart() {
       ))}
       <Total>
         <Bin>
-          <span>
+          {/* <span>
             <FaTrashAlt />
           </span>
-          <span>Empty Basket</span>
+          <span>Empty Basket</span> */}
         </Bin>
         <TotalPrice>
           Subtotal:<span>${checkout?.totalPrice}</span>

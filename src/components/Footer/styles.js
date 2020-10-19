@@ -33,16 +33,19 @@ export const FooterLogo = styled.div`
 `;
 
 export const FooterWrapper = styled.div`
-  border-top: 1px solid rgb(216, 216, 216);
-  background: rgb(247, 247, 247);
+  border-top: 0;
+  background: white;
+  @media (min-width: 768px) {
+    border-top: 1px solid #00b034;
+  }
 
   > div:last-child {
     margin-top: 40px;
     width: 100%;
-    background: rgb(105, 119, 128);
+    background: #00b034;
 
     > div:last-child {
-      background: rgb(118, 134, 144);
+      background: #048229;
       color: white;
       padding: 20px 0;
       > span {

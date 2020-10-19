@@ -19,7 +19,7 @@ const Content = styled.div`
   }
   > span:first-child {
     background: white;
-    border-right: 1px solid #d8d8d8;
+    border-right: 1px solid #00b034;
     width: ;
     @media (min-width: 768px) {
       width: 25%;

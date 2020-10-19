@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-onchange*/
 import React from 'react';
 import firebase from './firebase';
-/* import CartContext from 'context/CartContext'; */
+import CartContext from 'context/CartContext';
 import {
   FormWrapper,
   FormInnerContent,
@@ -52,7 +52,7 @@ import {
   FormButton,
 } from './styles';
 export function Form() {
-  /* const { checkout } = React.useContext(CartContext); */
+  const { checkout } = React.useContext(CartContext);
   const [FirstName, setFirstName] = React.useState('');
   const [LastName, setLastName] = React.useState('');
   const [dob, setDob] = React.useState('');
@@ -107,6 +107,7 @@ export function Form() {
     setOnGoingMedication('');
     setGender('');
     setPregnant('');
+    window.location.href = checkout.webUrl;
   };
 
   return (

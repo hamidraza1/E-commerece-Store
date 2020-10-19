@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const ProductTileWrapper = styled.div`
-  border-right: 1px solid #d8d8d8;
-  border-bottom: 1px solid #d8d8d8;
+  border-right: 1px solid #00b034;
+  border-bottom: 1px solid #00b034;
   display: flex;
   flex-direction: ${props => (props.tileView ? 'column' : 'row')};
 

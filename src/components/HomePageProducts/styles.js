@@ -19,10 +19,10 @@ export const ProductGridWrapper = styled.div`
 `;
 export const MainTitle = styled.div`
   text-align: center;
-  border-bottom: 1px solid #d8d8d8;
+  border-bottom: 1px solid #00b034;
   padding: 10px;
   font-size: 20px;
-  color: rgb(0, 158, 158);
+  color: #00b034;
   > svg {
     margin: 0 20px;
   }
@@ -32,8 +32,8 @@ export const MainTitle = styled.div`
 `;
 export const ProductGrid = styled.div`
   text-align: center;
-  border-bottom: 1px solid #d8d8d8;
-  border-right: 1px solid #d8d8d8;
+  border-bottom: 1px solid #00b034;
+  border-right: 1px solid #00b034;
   padding: 10px 0;
 `;
 export const Title = styled.div`
@@ -58,7 +58,7 @@ export const Image = styled.div`
 `;
 export const Btn = styled.div`
   display: inline-block;
-  background: rgb(232, 3, 91);
+  background: #00b034;
   color: white;
   padding: 10px 15px;
   border-radius: 4px;

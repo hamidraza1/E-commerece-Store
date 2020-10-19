@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './styles.css';
 import {
   HeaderOuterMostWrapper,
@@ -12,6 +12,7 @@ import {
   Li,
   CartContentsWrapper,
   Triangle,
+  MiniCartWrapperButton,
 } from './styles';
 import { Cart } from '../Cart';
 import { Search } from '../Search';
@@ -23,6 +24,8 @@ import { FiMenu } from 'react-icons/fi';
 import { MiniCart, HoveredTagsSection } from 'components';
 
 export function Header() {
+  const minicartt = useRef();
+  const btncartt = useRef();
   const { collections } = React.useContext(ProductContext);
   const [miniCartCard, setMiniCartCard] = React.useState(false);
   const [displayHovered, setDisplayHovered] = React.useState(false);
@@ -60,10 +63,6 @@ export function Header() {
     navigate(`/products/${collection.handle}`);
   };
 
-  const handleMiniCartCard = () => {
-    setMiniCartCard(!miniCartCard);
-  };
-
   const container = {
     hidden: {
       height: 0,
@@ -74,6 +73,22 @@ export function Header() {
       transition: { duration: 0.3 },
     },
   };
+  console.log(miniCartCard);
+
+  window.addEventListener('click', function (event) {
+    if (
+      event.toElement === btncartt.current ||
+      event.path[3] === btncartt.current
+    ) {
+      setMiniCartCard(!miniCartCard);
+    } else if (event.target.offsetParent === minicartt.current) {
+      return;
+    } else {
+      if (miniCartCard) {
+        setMiniCartCard(!miniCartCard);
+      }
+    }
+  });
 
   return (
     <HeaderOuterMostWrapper>
@@ -84,7 +99,7 @@ export function Header() {
               <FiMenu size="1.5em" />
             </Menu>
             <ShopName onClick={moveToHomePage}>
-              Manchester Chemist Shop
+              <img src={require('./Logo-new.png')} alt="" />
             </ShopName>
           </div>
 
@@ -101,17 +116,17 @@ export function Header() {
             <button>Sign In/Up</button>
 
             <span>
-              <span role="presentation" onClick={handleMiniCartCard}>
+              <MiniCartWrapperButton role="presentation" ref={btncartt}>
                 <Cart />
-              </span>
+              </MiniCartWrapperButton>
 
               {miniCartCard ? (
-                <>
-                  <CartContentsWrapper>
+                <span>
+                  <CartContentsWrapper ref={minicartt}>
                     <MiniCart />
                   </CartContentsWrapper>
                   <Triangle></Triangle>
-                </>
+                </span>
               ) : (
                 ''
               )}

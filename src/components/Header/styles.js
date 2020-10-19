@@ -8,14 +8,14 @@ export const HeaderOuterMostWrapper = styled.div`
   top: 0;
 `;
 export const HeaderOuterdiv = styled.div`
-  background: #099;
+  background: white;
 `;
 export const NavOuterdiv = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: white;
+  background: #00b034;
   border-bottom: solid 1px #d8d8d8;
 `;
 export const HeaderWrapper = styled.header`
@@ -26,7 +26,7 @@ export const HeaderWrapper = styled.header`
   margin: 0 auto;
   box-sizing: border-box;
   flex-wrap: wrap;
-  background: #099;
+  background: white;
   width: 100%;
   max-width: 1200px;
   > div:nth-child(1) {
@@ -38,7 +38,7 @@ export const HeaderWrapper = styled.header`
   > div:nth-child(2) {
     order: 3;
     width: 100%;
-    background: white;
+    background: #00b034;
     display: flex;
     justify-content: center;
     padding: 10px 0;
@@ -52,7 +52,7 @@ export const HeaderWrapper = styled.header`
 
     > span {
       width: 85%;
-      border: 1px solid #099;
+
       border-radius: 5px;
       @media (min-width: 768px) {
         width: 100%;
@@ -71,6 +71,9 @@ export const HeaderWrapper = styled.header`
     }
     > span:first-child {
       margin-top: -5px;
+      svg {
+        color: #00b034;
+      }
     }
     @media (min-width: 768px) {
       order: 3;
@@ -80,36 +83,40 @@ export const HeaderWrapper = styled.header`
       > button {
         display: block;
         color: white;
-        background: #099;
-        padding: 12px;
-        border: 1px solid white;
+        background: #3ca35b;
+        padding: 13px 18px;
+        border: 1px solid #00b034;
         border-radius: 5px;
         margin-right: 5px;
       }
       > span:last-child {
-        background: rgb(232, 3, 91);
-        padding: 8px;
+        background: #00b034;
+        padding: 0px;
         border-radius: 5px;
       }
     }
-    > span {
+    > div {
       margin-right: 30px;
-      color: white;
+      color: #00b034;
     }
   }
 `;
+export const MiniCartWrapperButton = styled.div`
+  padding: 8px;
+`;
 export const CartContentsWrapper = styled.div`
-  position: fixed;
-  top: 100px;
+  position: absolute;
+  top: 145px;
   right: 0px;
-  z-index: 3000;
+  z-index: 2000;
   width: 100%;
 
-  @media (min-width: 430px) {
-    top: 50px;
+  @media (min-width: 400px) {
+    top: 70px;
   }
+
   @media (min-width: 768px) {
-    top: 65px;
+    top: 80px;
     right: 20px;
     width: 500px;
   }
@@ -117,22 +124,25 @@ export const CartContentsWrapper = styled.div`
 export const Triangle = styled.div`
   position: absolute;
   z-index: 1000;
-  top: 90px;
+  top: 135px;
   right: 80px;
   background: white;
   width: 20px;
   height: 20px;
-  transform: rotate(45deg);
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
+
+  transform: rotate(-135deg);
   @media (min-width: 375px) {
-    top: 90px;
+    top: 135px;
     right: 80px;
   }
-  @media (min-width: 430px) {
-    top: 40px;
+  @media (min-width: 400px) {
+    top: 60px;
     right: 80px;
   }
+
   @media (min-width: 768px) {
-    top: 55px;
+    top: 70px;
     right: 80px;
   }
 `;
@@ -140,18 +150,18 @@ export const Triangle = styled.div`
 export const Menu = styled.div`
   display: block;
   height: 20px;
-  color: white;
+  color: #00b034;
   @media (min-width: 768px) {
     display: none;
   }
 `;
 export const ShopName = styled.div`
-  font-size: 20px;
-  font-weight: semi-bold;
-  color: white;
-  letter-spacing: -1px;
-  padding: 20px 10px;
   cursor: pointer;
+  margin-left: 15px;
+  > img {
+    width: 190px;
+    height: 100px;
+  }
 `;
 
 export const Nav = styled(motion.nav)`
@@ -183,12 +193,14 @@ export const Ul = styled(motion.div)`
   overflow: hidden;
   width: 100%;
   position: relative;
+  background: white;
+
   @media (min-width: 768px) {
     height: auto !important;
     display: flex;
     overflow: visible;
     width: 100%;
-    background: white;
+    background: #00b034;
   }
 `;
 export const Li = styled(motion.div)`
@@ -199,8 +211,8 @@ export const Li = styled(motion.div)`
   > div:nth-child(1) {
     width: 10px;
   }
-  border-bottom: 0.5px solid #099;
-  border-top: 0.5px solid #099;
+  border-bottom: 0.5px solid #00b034;
+  border-top: 0.5px solid #00b034;
   font-weight: 600;
   font-size: 16px;
   padding: 7px 0;
@@ -215,12 +227,15 @@ export const Li = styled(motion.div)`
     width: ;
   }
   > span {
-    color: rgb(71, 71, 71);
+    color: #00b034;
     cursor: pointer;
     position: relative;
     padding-right: 0px;
     display: block;
     width: 100%;
+    @media (min-width: 768px) {
+      color: white;
+    }
   }
 `;
 

@@ -13,9 +13,8 @@ export const SearchForm = styled.form`
     padding: 5px 20px;
     height: 40px;
     box-sizing: border-box;
-    border: 1px solid rgb(231, 234, 236);
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border: 1px solid #00b034;
+    border-right: none;
   }
 `;
 export const SearchIcon = styled.div`

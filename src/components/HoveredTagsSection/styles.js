@@ -24,8 +24,8 @@ export const HoveredTagsSectionWrapper = styled.div`
     background: white;
     width: 15px;
     height: 15px;
-    border-top: 1px solid #d8d8d8;
-    border-left: 1px solid #d8d8d8;
+    border-top: 1px solid rgb(20, 245, 86);
+    border-left: 1px solid rgb(20, 245, 86);
     border-radius: 2px;
     transform: rotate(45deg);
     @media (min-width: 375px) {
@@ -46,21 +46,21 @@ export const HoveredTagsSectionWrapper = styled.div`
 export const HoveredTagsNProd = styled.div`
   display: flex;
   width: 100%;
-  border-bottom: 1px solid #d8d8d8;
+  border-bottom: 1px solid rgb(20, 245, 86);
 `;
 export const HoveredTagsWrapper = styled.div`
   > div:first-child {
-    color: rgb(0, 158, 158);
+    color: #00b034;
     font-size: 16px;
     padding: 10px 10px;
     font-weight: 600;
-    border-bottom: 1px solid #d8d8d8;
+    border-bottom: 1px solid rgb(20, 245, 86);
   }
 
   display: inline-flex;
   flex-direction: column;
   width: 20%;
-  border-right: 1px solid #d8d8d8;
+  border-right: 1px solid rgb(20, 245, 86);
 `;
 export const HoveredTags = styled.div`
   > div {
@@ -68,14 +68,14 @@ export const HoveredTags = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 8px;
-    border-bottom: 1px solid #d8d8d8;
+    border-bottom: 1px solid rgb(20, 245, 86);
     font-size: 15px;
     &:hover {
       cursor: pointer;
       background: rgb(181, 176, 174);
     }
     > svg {
-      color: rgb(0, 158, 158);
+      color: #00b034;
     }
   }
   > div:last-child {
@@ -88,7 +88,7 @@ export const HoveredProductsWrapper = styled.div`
     font-size: 16px;
     padding: 10px 10px;
     font-weight: 600;
-    border-bottom: 1px solid #d8d8d8;
+    border-bottom: 1px solid rgb(20, 245, 86);
     &:hover {
       cursor: pointer;
       color: green;
@@ -106,7 +106,7 @@ export const HoveredProducts = styled.div`
   flex-direction: column;
   align-items: start;
   > div:first-child {
-    color: rgb(0, 158, 158);
+    color: #00b034;
     font-weight: 600;
   }
   > div {
@@ -125,7 +125,7 @@ export const TopOffersWrapper = styled.div`
   width: 37%;
   > div:first-child {
     font-weight: 600;
-    border-bottom: 1px solid #d8d8d8;
+    border-bottom: 1px solid rgb(20, 245, 86);
     padding: 10px 10px;
   }
 `;

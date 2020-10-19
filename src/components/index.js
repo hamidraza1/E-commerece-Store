@@ -27,3 +27,4 @@ export * from './HoveredTagsSection';
 export * from './HomePageProducts';
 export * from './Form';
 export * from './RecordContent';
+export * from './HomePageVideo';

@@ -21,7 +21,7 @@ export const SearchedProductsWrapper = styled.div`
 `;
 export const SetView = styled.div`
   background: white;
-  border-bottom: 1px solid #d8d8d8;
+  border-bottom: 1px solid #00b034;
 
   padding: 15px 10px;
   display: flex;
@@ -29,7 +29,7 @@ export const SetView = styled.div`
   align-items: center;
 
   > select {
-    background: rgb(231, 234, 236);
+    background: #a7f2bd;
     padding: 5px;
     border: none;
     border-radius: 5px;
@@ -45,10 +45,13 @@ export const SetView = styled.div`
     }
   }
   > div:last-child {
-    display: inline-flex;
+    display: none;
+    @media (min-width: 768px) {
+      display: inline-flex;
+    }
     > div {
       margin-left: 10px;
-      color: rgb(0, 153, 153);
+      color: #00b034;
       cursor: pointer;
       &:hover {
         color: rgb(30, 74, 74);
@@ -58,8 +61,8 @@ export const SetView = styled.div`
 `;
 export const SearchTermSection = styled.div`
   font-size: 20px;
-  color: rgb(0, 153, 153);
+  color: #00b034;
   background: white;
   padding: 30px;
-  border-bottom: 1px solid #d8d8d8;
+  border-bottom: 1px solid #00b034;
 `;

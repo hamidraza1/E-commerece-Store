@@ -26,22 +26,22 @@ export const BannerButtons = styled.div`
   display: flex;
   border: 1px solid white;
   background: white;
-  color: rgb(0, 153, 153);
+  color: #00b034;
   font-size: 14px;
   width: 99.5%;
   .active {
-    background: #099;
+    background: #00b034;
     color: white;
   }
   > div {
     font-size: 7px;
     padding: 5px 0;
-    border-right: 1px solid #d8d8d8;
+    border-right: 1px solid #00b034;
     width: 25%;
     text-align: center;
     cursor: pointer;
     &:hover {
-      background: #099;
+      background: #00b034;
       color: white;
     }
     @media (min-width: 425px) {

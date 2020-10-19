@@ -14,7 +14,7 @@ export const TagDescriptionWrapper = styled.div`
     padding: 0;
     font-size: 16px;
     font-weight: 400;
-    color: rgb(29, 165, 165);
+    color: #00b034;
     margin-bottom: 10px;
     width: 100%;
     display: flex;

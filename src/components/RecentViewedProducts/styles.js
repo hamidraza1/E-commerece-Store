@@ -11,10 +11,10 @@ export const ProductWrapper = styled.div`
   margin-left: 20px;
   padding: 10px;
 
-  border-bottom: 1px solid #d8d8d8;
+  border-bottom: 1px solid #00b034;
   margin-bottom: 60px;
   @media (min-width: 768px) {
-    border-right: 1px solid #d8d8d8;
+    border-right: 1px solid #00b034;
     border-bottom: 0;
   }
 `;

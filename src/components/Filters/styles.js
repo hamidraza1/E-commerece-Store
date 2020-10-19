@@ -9,14 +9,14 @@ export const CategoriesTitle = styled.div`
   display: flex;
   justify-content: space-between;
   align-itmes: center;
-  border-bottom: 1px solid #d8d8d8;
+  border-bottom: 1px solid #00b034;
   padding-bottom: 15px;
   cursor: pointer;
   > span {
-    color: rgb(0, 153, 153);
+    color: #00b034;
   }
   > svg {
-    color: rgb(0, 153, 153);
+    color: #00b034;
   }
 `;
 export const PriceFilterTitle = styled.div`
@@ -24,14 +24,14 @@ export const PriceFilterTitle = styled.div`
   display: flex;
   justify-content: space-between;
   align-itmes: center;
-  border-bottom: 1px solid #d8d8d8;
+  border-bottom: 1px solid #00b034;
   padding-bottom: 15px;
   cursor: pointer;
   > span {
-    color: rgb(0, 153, 153);
+    color: #00b034;
   }
   > svg {
-    color: rgb(0, 153, 153);
+    color: #00b034;
   }
 `;
 export const CategoriesOptions = styled(motion.div)`

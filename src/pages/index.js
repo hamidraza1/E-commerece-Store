@@ -7,6 +7,7 @@ import {
   FeaturedProducts, */
   HomePageBanner,
   HomePageProducts,
+  HomePageVideo,
 } from 'components';
 /* import ProductContext from 'context/ProductContext'; */
 
@@ -16,8 +17,10 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO description="Manchester Chemist Store Homepage" title="Homepage" />
+      <HomePageVideo />
       <HomePageBanner />
       <HomePageProducts />
+
       {/* <HomePageCollectionsGrid
         collections={collections.filter(
           collection => collection.title !== 'Featured Products'

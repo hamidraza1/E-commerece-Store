@@ -5,7 +5,7 @@ export const ProdTrack = styled.section`
   align-items: center;
   margin-top: -20px;
   margin-bottom: 20px;
-  color: rgb(0, 158, 158);
+  color: #00b034;
   font-size: 14px;
   > div:nth-child(1) {
     cursor: pointer;
@@ -75,7 +75,7 @@ export const Heading2 = styled.div`
   h4 {
     margin: 10px 0;
     font-size: 22px;
-    color: rgb(0, 153, 153);
+    color: #00b034;
   }
   p {
     font-size: 14px;
@@ -157,11 +157,12 @@ export const StockNno = styled.div`
     flex-direction: row;
   }
   > div:first-child {
-    color: rgb(90, 153, 153);
+    color: #00b034;
   }
 `;
 export const Note = styled.div`
-  background: rgb(231, 234, 236);
+  background: #02e344;
+  color: white;
   margin: 10px 0;
   padding: 8px;
   font-size: 12px;

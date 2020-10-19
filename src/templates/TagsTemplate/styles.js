@@ -6,7 +6,7 @@ export const TagsTrack = styled.div`
   align-items: center;
   margin-top: -20px;
   margin-bottom: 20px;
-  color: rgb(0, 158, 158);
+  color: #00b034;
   font-size: 14px;
   > div:nth-child(1) {
     cursor: pointer;
@@ -51,11 +51,11 @@ export const CateogoriesSection = styled.div`
 `;
 export const Categories = styled(motion.div)`
   > h4 {
-    border-bottom: 1px solid #d8d8d8;
+    border-bottom: 1px solid #00b034;
     margin: 6px 10px;
     padding-top: 25px;
     font-size: 18px;
-    color: rgb(57, 155, 153);
+    color: #00b034;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -65,11 +65,11 @@ export const Categories = styled(motion.div)`
 `;
 export const Brands = styled(motion.div)`
   > h4 {
-    border-bottom: 1px solid #d8d8d8;
+    border-bottom: 1px solid #00b034;
     margin: 6px 10px;
     padding-top: 10px;
     font-size: 18px;
-    color: rgb(57, 155, 153);
+    color: #00b034;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -79,11 +79,11 @@ export const Brands = styled(motion.div)`
 `;
 export const ReviewsCollections = styled(motion.div)`
   > h4 {
-    border-bottom: 1px solid #d8d8d8;
+    border-bottom: 1px solid #00b034;
     margin: 6px 10px;
     padding-top: 10px;
     font-size: 18px;
-    color: rgb(57, 155, 153);
+    color: #00b034;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -119,8 +119,8 @@ export const ProdSection = styled.div`
   }
 `;
 export const Sort = styled.div`
-  border-bottom: 1px solid #d8d8d8;
-  border-left: 1px solid #d8d8d8;
+  border-bottom: 1px solid #00b034;
+  border-left: 1px solid #00b034;
   padding: 10px;
   display: flex;
   justify-content: space-between;
@@ -128,7 +128,7 @@ export const Sort = styled.div`
 
   > select {
     font-size: 14px;
-    background: rgb(231, 234, 236);
+    background: #a7f2bd;
     padding: 5px;
     border: none;
     border-radius: 5px;
@@ -150,7 +150,7 @@ export const Sort = styled.div`
     }
     > div {
       margin-left: 10px;
-      color: rgb(0, 153, 153);
+      color: #00b034;
     }
   }
 `;
@@ -168,9 +168,9 @@ export const ProdGrid = styled.div`
   }
 `;
 export const Prod = styled.div`
-  border-bottom: 1px solid #d8d8d8;
-  border-left: 1px solid #d8d8d8;
-  border-right: 1px solid #d8d8d8;
+  border-bottom: 1px solid #00b034;
+  border-left: 1px solid #00b034;
+  border-right: 1px solid #00b034;
   display: flex;
   flex-direction: ${props => (props.tile ? 'row' : 'column')};
   justify-content: space-evenly;
@@ -247,7 +247,7 @@ export const Price = styled.div`
 `;
 export const ProdPrice = styled.div`
   font-weight: 600;
-  color: green;
+  color: #00b034;
 `;
 export const OriginalPrice = styled.div`
   text-decoration: line-through;

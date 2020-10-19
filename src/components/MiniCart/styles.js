@@ -11,7 +11,7 @@ export const Btns = styled.div`
 
   > div:first-child {
     padding: 10px;
-    background: rgb(0, 153, 153);
+    background: rgb(60, 163, 91);
     color: white;
     border-radius: 5px;
     margin-right: 10px;
@@ -20,10 +20,11 @@ export const Btns = styled.div`
   }
   > div:last-child {
     padding: 10px;
-    background: rgb(232, 3, 91);
+    background: #00b034;
     color: white;
     border-radius: 5px;
     margin-right: 10px;
+    cursor: pointer;
   }
 `;
 

@@ -11,14 +11,14 @@ export const FooterAnimationWrapper = styled.div`
       align.items: center;
       justify-content: space-between;
       padding: 14px;
-      border-top: 0.5px solid #099;
+      border-top: 0.5px solid #00b034;
       @media (min-width: 768px) {
         border-top: 0;
       }
 
       font-size: 18px;
       > svg {
-        color: #099;
+        color: #00b034;
         @media (min-width: 768px) {
           display: none;
         }

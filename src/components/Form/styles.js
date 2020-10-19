@@ -10,7 +10,7 @@ export const FormWrapper = styled.form`
     margin-top: 0px;
   }
   > h1 {
-    color: rgb(0, 158, 158);
+    color: #00b034;
     font-size: 26px;
     text-align: center;
     @media (min-width: 768px) {
@@ -447,7 +447,7 @@ export const PregnantInput = styled.input`
 export const FormButton = styled.button`
   display: inline-block;
   width: 100%;
-  background-color: rgb(0, 158, 158);
+  background-color: #00b034;
   color: white;
   border: none;
   padding: 10px;

@@ -5,11 +5,11 @@ export const CollectionTrack = styled.div`
   align-items: center;
   margin-top: -20px;
   margin-bottom: 20px;
-  color: rgb(0, 158, 158);
+  color: #00b034;
   > div:first-child {
     cursor: pointer;
     &:hover {
-      color: rgb(1, 92, 92);
+      color: #00b034;
     }
   }
   > div :last-child {
@@ -48,9 +48,9 @@ export const TagProd = styled.div`
     > span {
       background: white;
       padding: 20px;
-      border: 1px solid #d8d8d8;
+      border: 1px solid #00b034;
 
-      color: #099;
+      color: #00b034;
     }
   }
 `;
@@ -58,7 +58,7 @@ export const TagNamesWrapper = styled.div`
   box-shadow: 0px 1px 3px rgba(0, 153, 153, 0.5);
   background: white;
   width: 100%;
-  border-right: 1px solid #d8d8d8;
+  border-right: 1px solid #00b034;
 
   padding-bottom: 20px;
   @media (min-width: 768px) {
@@ -67,8 +67,8 @@ export const TagNamesWrapper = styled.div`
 
   > h4 {
     font-size: 16px;
-    color: #099;
-    border-bottom: 1px solid #d8d8d8;
+    color: #00b034;
+    border-bottom: 1px solid #00b034;
     margin: 15px;
     padding: 12px 0;
   }
@@ -94,13 +94,14 @@ export const TagNamesPicturesWrapper = styled.div`
   }
 `;
 export const TagNamePic = styled.div`
-  border-bottom: 1px solid #d8d8d8;
-  border-right: 1px solid #d8d8d8;
+  border-bottom: 1px solid #00b034;
+  border-right: 1px solid #00b034;
 
   background: white;
   > div:nth-child(1) {
     font-size: 16px;
-    color: #099;
+    font-weight: 600;
+    color: #00b034;
     margin: 10px 15px;
     cursor: pointer;
     display: inline-block;
@@ -127,7 +128,7 @@ export const ShopNowBtn = styled.div`
   display: inline-flex;
   padding: 10px 15px;
   font-size: 14px;
-  background: rgb(232, 3, 91);
+  background: #00b034;
   color: white;
   border-radius: 5px;
   float: right;

@@ -21,7 +21,7 @@ export const ProductQuantityAdderWrapper = styled.div`
 
 export const AddToCartButton = styled.button`
   border: 0;
-  background: rgb(48, 109, 76);
+  background: #038529;
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
@@ -32,9 +32,9 @@ export const AddToCartButton = styled.button`
   cursor: pointer;
 `;
 export const IncrementBtn = styled.div`
-  background: rgb(231, 234, 236);
+  background: #a7f2bd;
   padding: 4px 0;
-  color: rgb(76, 79, 90);
+  color: #00b034;
   font-size: 26px;
   font-weight: bold;
   border-top-right-radius: 5px;
@@ -43,9 +43,9 @@ export const IncrementBtn = styled.div`
   cursor: pointer;
 `;
 export const DecrementBtn = styled.div`
-  background: rgb(231, 234, 236);
+  background: #a7f2bd;
   padding: 4px 0;
-  color: rgb(168, 178, 184);
+  color: #00b034;
   font-size: 26px;
   font-weight: bold;
   border-top-left-radius: 5px;
