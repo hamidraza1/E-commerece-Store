@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const HoveredTagsSectionWrapper = styled.div`
   display: none;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
   @media (min-width: 768px) {
     display: ${props => (props.displayHovered ? 'flex' : 'none')};
   }
@@ -12,7 +13,7 @@ export const HoveredTagsSectionWrapper = styled.div`
   top: 37px;
   left: 20px;
   background: white;
-  width: 96%;
+  width: 96.5%;
   border-radius: 5px;
   &::after {
     content: '';

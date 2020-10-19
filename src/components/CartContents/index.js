@@ -21,6 +21,7 @@ import {
 import { QuantityAdjuster } from '../QuantityAdjuster';
 import { RemoveLineItem } from '../RemoveLineItem';
 import { FaShoppingCart, FaLock, FaTag } from 'react-icons/fa';
+import { navigate } from '@reach/router';
 
 export function CartContents() {
   const { checkout, updateLineItem } = React.useContext(CartContext);
@@ -98,7 +99,13 @@ export function CartContents() {
               )}
             </Savings>
           </OrderTotal>
-          <CheckoutBtn>Proceed to Checkout </CheckoutBtn>
+          <CheckoutBtn
+            onClick={() => {
+              navigate(`/medicalHistory`);
+            }}
+          >
+            Proceed to Checkout{' '}
+          </CheckoutBtn>
         </OrderTotalWrapper>
       </InnerContent>
 

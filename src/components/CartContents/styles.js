@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const CartContentsWrapper = styled.div`
   > h2 {
     text-align: center;
-    color: rgb(0, 153, 153);
+    color: #00b034;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -131,7 +131,7 @@ export const Savings = styled.div`
 `;
 export const CheckoutBtn = styled.div`
   padding: 15px;
-  background: rgb(232, 3, 91);
+  background: #00b034;
   margin-top: 20px;
   font-size: 22px;
   text-align: center;
@@ -160,14 +160,14 @@ export const SecureCheckout = styled.div`
   }
   > div {
     margin-right: 10px;
-    color: rgb(0, 153, 153);
+    color: #00b034;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   > span {
     > div:first-child {
-      color: rgb(0, 153, 153);
+      color: #00b034;
     }
     > div:last-child {
       font-size: 14px;
@@ -185,14 +185,14 @@ export const Returns = styled.div`
   }
   > div {
     margin-right: 10px;
-    color: rgb(0, 153, 153);
+    color: #00b034;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   > span {
     > div:first-child {
-      color: rgb(0, 153, 153);
+      color: #00b034;
     }
     > div:last-child {
       font-size: 14px;
