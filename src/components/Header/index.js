@@ -73,22 +73,22 @@ export function Header() {
       transition: { duration: 0.3 },
     },
   };
-  console.log(miniCartCard);
-
-  window.addEventListener('click', function (event) {
-    if (
-      event.toElement === btncartt.current ||
-      event.path[3] === btncartt.current
-    ) {
-      setMiniCartCard(!miniCartCard);
-    } else if (event.target.offsetParent === minicartt.current) {
-      return;
-    } else {
-      if (miniCartCard) {
+  React.useEffect(() => {
+    window.addEventListener('click', function (event) {
+      if (
+        event.toElement === btncartt.current ||
+        event.path[3] === btncartt.current
+      ) {
         setMiniCartCard(!miniCartCard);
+      } else if (event.target.offsetParent === minicartt.current) {
+        return;
+      } else {
+        if (miniCartCard) {
+          setMiniCartCard(!miniCartCard);
+        }
       }
-    }
-  });
+    });
+  }, [miniCartCard]);
 
   return (
     <HeaderOuterMostWrapper>
