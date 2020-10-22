@@ -21,14 +21,14 @@ export function RecentViewedProducts({ Array }) {
         ? Array.map((prod, i) => (
             <ProductWrapper key={i}>
               <Title>
-                {products.find(p => p.shopifyId === Array[i]).title}
+                {products.find(p => p.shopifyId === Array[i])?.title}
               </Title>
 
               <MainImage>
                 <img
                   alt=""
                   src={
-                    products.find(p => p.shopifyId === Array[i]).images[0]
+                    products.find(p => p.shopifyId === Array[i])?.images[0]
                       .localFile.childImageSharp.fluid.src
                   }
                 />
@@ -39,7 +39,7 @@ export function RecentViewedProducts({ Array }) {
                 <Price>
                   $
                   {
-                    products.find(p => p.shopifyId === Array[i]).priceRange
+                    products.find(p => p.shopifyId === Array[i])?.priceRange
                       .minVariantPrice.amount
                   }
                 </Price>
@@ -48,11 +48,11 @@ export function RecentViewedProducts({ Array }) {
               <ProductQuantityAdderWrapper>
                 <ProductQuantityAdder
                   available={
-                    products.find(p => p.shopifyId === Array[i]).variants[0]
+                    products.find(p => p.shopifyId === Array[i])?.variants[0]
                       .availableForSale
                   }
                   variantId={
-                    products.find(p => p.shopifyId === Array[i]).variants[0]
+                    products.find(p => p.shopifyId === Array[i])?.variants[0]
                       .shopifyId
                   }
                 />
