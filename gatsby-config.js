@@ -62,20 +62,5 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
-    /*  {
-      resolve: 'gatsby-source-yotpo-shopify',
-      options: {
-        shopName: `MyChemistry`,
-        shopifyAccessToken: `679c479114cb015b8176b70be0aa4f61`,
-        yotpoAppKey: `anEQ6vnZofKCvWIbAf4NkNPXad0ocbMtdIxbr6CW`,
-      },
-    }, */
-    /*  {
-      resolve: 'gatsby-source-yotpo',
-      options: {
-        appKey: `anEQ6vnZofKCvWIbAf4NkNPXad0ocbMtdIxbr6CW`,
-        appSecret: `Orv6JZoguYJa2OE8yIAAPHZwAMm7tmBCIdDDy6r7`,
-      },
-    }, */
   ],
 };
