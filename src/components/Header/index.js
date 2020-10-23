@@ -116,7 +116,7 @@ export function Header() {
             <button
               onClick={() => navigate(`https://manchesterchemist.com/register`)}
             >
-              Sign In/Up
+              Sign In-Up
             </button>
 
             <span>
