@@ -54,7 +54,7 @@ export function Footer() {
               );
             }}
           >
-            <img src={require('./bottom-img.jpg')} alt="" />
+            <img src={require('./bottom.jpg')} alt="" />
             <div>Prescriptions</div>
           </BottomImg>
         </div>
