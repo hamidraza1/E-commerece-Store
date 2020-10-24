@@ -69,9 +69,9 @@ export function CartContents() {
               <Del>
                 <RemoveLineItem lineItemId={item.id} />
               </Del>
-              <Price>${item.variant.price}</Price>
+              <Price>£{item.variant.price}</Price>
 
-              {/* <div>${(item.quantity * item.variant.price).toFixed(2)}</div> */}
+              {/* <div>£{(item.quantity * item.variant.price).toFixed(2)}</div> */}
             </CartItem>
           ))}
         </MyItems>
@@ -79,12 +79,12 @@ export function CartContents() {
           <h4>Order Total</h4>
           <OrderTotal>
             <BasketTotal>
-              <span>Basket total</span> <span>${checkout?.totalPrice}</span>
+              <span>Basket total</span> <span>£{checkout?.totalPrice}</span>
             </BasketTotal>
             <Savings>
               <div>
                 <span>Your total savings today</span>{' '}
-                <span>${checkout?.totalPrice}</span>
+                <span>£{checkout?.totalPrice}</span>
               </div>
               <div role="presentation" onClick={handleSavingsDes}>
                 What is this?
@@ -131,7 +131,7 @@ export function CartContents() {
       </HelpWrapper>
 
       {/* <div>
-        <span>${checkout?.totalPrice}</span>
+        <span>£{checkout?.totalPrice}</span>
       </div> */}
     </CartContentsWrapper>
   );

@@ -175,7 +175,7 @@ export function Form() {
           <SecondDOBWrapper>
             <SecondDobSpan>
               Date of Birth
-              <span>(If deifferent person from details above)</span>
+              <span>(If different person from details above)</span>
             </SecondDobSpan>
             <SecondDobInput
               placeholder="DD-MM-YYYY"
@@ -187,7 +187,7 @@ export function Form() {
         {/* ...........Second Contact.............. */}
         <SecondContactWrapper>
           <SecondContactSpan>
-            Contact <span>(If deifferent person from details above)</span>
+            Contact <span>(If different person from details above)</span>
           </SecondContactSpan>
           <SecondContactInput
             placeholder="+44 1234 5678910"
