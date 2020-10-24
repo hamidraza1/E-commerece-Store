@@ -1,5 +1,6 @@
 import React from 'react';
-import { FooterWrapper, FooterInnerOne, FooterLogo } from './styles';
+import { navigate } from '@reach/router';
+import { FooterWrapper, FooterInnerOne, FooterLogo, BottomImg } from './styles';
 import { FooterAnimation } from 'components';
 export function Footer() {
   return (
@@ -46,6 +47,16 @@ export function Footer() {
               <span> Site map</span>
             </div>
           </span>
+          <BottomImg
+            onClick={() => {
+              navigate(
+                `https://medicine-seller-register.mhra.gov.uk/search-registry/637`
+              );
+            }}
+          >
+            <img src={require('./bottom-img.jpg')} alt="" />
+            <div>Prescriptions</div>
+          </BottomImg>
         </div>
       </div>
     </FooterWrapper>

@@ -216,7 +216,7 @@ export const Li = styled(motion.div)`
   font-weight: 600;
   font-size: 16px;
   padding: 7px 0;
-  padding-left: 0px;
+  padding-left: 15px;
 
   @media (min-width: 768px) {
     border: 0;

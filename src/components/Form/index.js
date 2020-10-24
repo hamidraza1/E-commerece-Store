@@ -175,7 +175,7 @@ export function Form() {
           <SecondDOBWrapper>
             <SecondDobSpan>
               Date of Birth
-              <span>(If deiffrent person from details above)</span>
+              <span>(If deifferent person from details above)</span>
             </SecondDobSpan>
             <SecondDobInput
               placeholder="DD-MM-YYYY"
@@ -187,7 +187,7 @@ export function Form() {
         {/* ...........Second Contact.............. */}
         <SecondContactWrapper>
           <SecondContactSpan>
-            Contact <span>(If deiffrent person from details above)</span>
+            Contact <span>(If deifferent person from details above)</span>
           </SecondContactSpan>
           <SecondContactInput
             placeholder="+44 1234 5678910"
@@ -199,7 +199,7 @@ export function Form() {
         <SymptomsWrapper>
           <SymptomsSpan>Current Symptoms</SymptomsSpan>
           <SymptomsInput
-            placeholder="What symptoms do you got?"
+            placeholder="What symptoms have you got?"
             value={symptoms}
             onChange={e => setSymptoms(e.target.value)}
           />
@@ -210,7 +210,7 @@ export function Form() {
             Duration of These Symptoms
           </SymptomsDurationSpan>
           <SymptomsDurationInput
-            placeholder="For how long do you have these symptoms?"
+            placeholder="How long have you had these symptoms?"
             value={symptomsduration}
             onChange={e => setSymptomsduration(e.target.value)}
           />
@@ -218,9 +218,9 @@ export function Form() {
 
         {/*......... Prvious Medication.............. */}
         <PrviousMedicationWrapper>
-          <PrviousMedicationSpan>Previous Medication</PrviousMedicationSpan>
+          <PrviousMedicationSpan>Medications tried</PrviousMedicationSpan>
           <PreviousMedicationInput
-            placeholder="What Medications have you tried for these medicines?"
+            placeholder="What Medications have you tried for these symptoms?"
             value={previousMedication}
             onChange={e => setPreviousMedication(e.target.value)}
           />
@@ -232,7 +232,7 @@ export function Form() {
             Current Regular Medications
           </OnGoingMedicationSpan>
           <OnGoingMedicationInput
-            placeholder="Are you on any other regular medications at moment?"
+            placeholder="Are you on any other regular medications at the moment?"
             value={onGoingMedication}
             onChange={e => setOnGoingMedication(e.target.value)}
           />

@@ -31,6 +31,22 @@ export const FooterLogo = styled.div`
     }
   }
 `;
+export const BottomImg = styled.div`
+  margin-top: 30px;
+  cursor: pointer;
+  text-align: center;
+  @media (min-width: 768px) {
+    margin-right: 30px;
+    margin-top: 0px;
+  }
+  > img {
+    width: 70px;
+    height: 70px;
+  }
+  > div {
+    font-size: 12px;
+  }
+`;
 
 export const FooterWrapper = styled.div`
   border-top: 0;
@@ -48,12 +64,23 @@ export const FooterWrapper = styled.div`
       background: #048229;
       color: white;
       padding: 20px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      @media (min-width: 768px) {
+        flex-direction: row;
+      }
       > span {
         display: flex;
         flex-direction: column;
         width: 100%;
         justify-content: center;
         align-items: center;
+        @media (min-width: 768px) {
+          justify-content: start;
+          align-items: start;
+          margin-left: 30px;
+        }
 
         > div:first-child {
           font-size: 12px;
